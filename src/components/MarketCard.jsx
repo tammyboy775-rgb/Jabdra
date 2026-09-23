@@ -1,20 +1,24 @@
 function MarketCard({ market }) {
   return (
-    <article>
-      <h2>{market.name}</h2>
+    <article className="market-card">
+      <div className="market-card-content">
+        <p className="market-card-location">
+          {market.city}, {market.state}
+        </p>
 
-      <p>
-        {market.city}, {market.state}
-      </p>
+        <h2>{market.name}</h2>
 
-      <p>{market.location}</p>
+        <p className="market-card-address">{market.location}</p>
 
-      <p>{market.description}</p>
+        <p className="market-card-description">{market.description}</p>
 
-      <div>
-        {market.categories.map((category) => (
-          <span key={category}>{category} </span>
-        ))}
+        <div className="market-card-categories">
+          {market.categories.map((category) => (
+            <span key={category} className="market-category">
+              {category}
+            </span>
+          ))}
+        </div>
       </div>
     </article>
   );

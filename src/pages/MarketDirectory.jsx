@@ -3,6 +3,7 @@ import { getMarkets } from "../services/marketService";
 import MarketCard from "../components/MarketCard";
 import MarketSearch from "../components/MarketSearch";
 import MarketFilters from "../components/MarketFilters";
+import "./MarketDirectory.css";
 
 function MarketDirectory() {
   const [markets, setMarkets] = useState([]);
@@ -52,39 +53,62 @@ function MarketDirectory() {
   });
 
   if (loading) {
-    return <p>Loading markets...</p>;
+    return <p className="market-directory-status">Loading markets...</p>;
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="market-directory-status market-directory-error">{error}</p>;
   }
 
   return (
-    <main>
-      <h1>Market Directory</h1>
+    <main className="market-directory">
+      <header className="market-directory-header">
+        <div>
+          <p className="market-directory-eyebrow">Jabdra Markets</p>
 
-      <MarketSearch
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
-      />
+          <h1>Market Directory</h1>
 
-      <MarketFilters
-        selectedState={selectedState}
-        selectedCategory={selectedCategory}
-        states={states}
-        categories={categories}
-        onStateChange={setSelectedState}
-        onCategoryChange={setSelectedCategory}
-      />
+          <p className="market-directory-description">
+            Discover markets, locations, and the products commonly available
+            there.
+          </p>
+        </div>
 
-      <section>
-        {filteredMarkets.map((market) => (
-          <MarketCard key={market.id} market={market} />
-        ))}
-      </section>
+        <p className="market-count">
+          {filteredMarkets.length}{" "}
+          {filteredMarkets.length === 1 ? "market" : "markets"}
+        </p>
+      </header>
 
-      {filteredMarkets.length === 0 && (
-        <p>No markets found.</p>
+      <div className="market-directory-controls">
+        <MarketSearch
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+        />
+
+        <MarketFilters
+          selectedState={selectedState}
+          selectedCategory={selectedCategory}
+          states={states}
+          categories={categories}
+          onStateChange={setSelectedState}
+          onCategoryChange={setSelectedCategory}
+        />
+      </div>
+
+      {filteredMarkets.length > 0 ? (
+        <section className="market-grid">
+          {filteredMarkets.map((market) => (
+            <MarketCard key={market.id} market={market} />
+          ))}
+        </section>
+      ) : (
+        <div className="market-empty-state">
+          <h2>No markets found</h2>
+          <p>
+            Try changing your search term or selecting a different filter.
+          </p>
+        </div>
       )}
     </main>
   );

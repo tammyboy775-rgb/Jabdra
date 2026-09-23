@@ -7,8 +7,8 @@ function MarketFilters({
   onCategoryChange,
 }) {
   return (
-    <div>
-      <div>
+    <div className="market-filters">
+      <div className="market-filter">
         <label htmlFor="state-filter">State</label>
 
         <select
@@ -26,7 +26,7 @@ function MarketFilters({
         </select>
       </div>
 
-      <div>
+      <div className="market-filter">
         <label htmlFor="category-filter">Category</label>
 
         <select
