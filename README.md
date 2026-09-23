@@ -1,2 +1,2 @@
 # Jabdra
-A group for the techwiz competition
+A group for the techwiz competition intial README
