@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMarkets } from "../services/marketService";
-import MarketCard from "../components/Marketcard";
+import MarketCard from "../components/MarketCard";
 import MarketSearch from "../components/MarketSearch";
 
 function MarketDirectory() {
