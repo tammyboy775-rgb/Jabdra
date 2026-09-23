@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { getMarkets } from "../services/marketService";
 import MarketCard from "../components/MarketCard";
 import MarketSearch from "../components/MarketSearch";
+import MarketFilters from "../components/MarketFilters";
 
 function MarketDirectory() {
   const [markets, setMarkets] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -24,14 +27,28 @@ function MarketDirectory() {
     loadMarkets();
   }, []);
 
+  const states = [...new Set(markets.map((market) => market.state))].sort();
+
+  const categories = [
+    ...new Set(markets.flatMap((market) => market.categories)),
+  ].sort();
+
   const filteredMarkets = markets.filter((market) => {
     const search = searchTerm.toLowerCase().trim();
 
-    return (
+    const matchesSearch =
       market.name.toLowerCase().includes(search) ||
       market.city.toLowerCase().includes(search) ||
-      market.state.toLowerCase().includes(search)
-    );
+      market.state.toLowerCase().includes(search);
+
+    const matchesState =
+      selectedState === "" || market.state === selectedState;
+
+    const matchesCategory =
+      selectedCategory === "" ||
+      market.categories.includes(selectedCategory);
+
+    return matchesSearch && matchesState && matchesCategory;
   });
 
   if (loading) {
@@ -49,6 +66,15 @@ function MarketDirectory() {
       <MarketSearch
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
+      />
+
+      <MarketFilters
+        selectedState={selectedState}
+        selectedCategory={selectedCategory}
+        states={states}
+        categories={categories}
+        onStateChange={setSelectedState}
+        onCategoryChange={setSelectedCategory}
       />
 
       <section>
