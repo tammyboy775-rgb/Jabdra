@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMarkets } from "../services/marketService";
-import MarketCard from "../components/MarketCard";
+import MarketCard from "../components/Marketcard";
 
 function MarketDirectory() {
   const [markets, setMarkets] = useState([]);
