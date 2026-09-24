@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { MarketsProvider } from './context/MarketsContext.jsx'
+import { BookmarksProvider } from './context/BookmarksContext.jsx'
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <MarketsProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <BookmarksProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </BookmarksProvider>
     </MarketsProvider>
   </StrictMode>,
 );
