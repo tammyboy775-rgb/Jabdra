@@ -9,6 +9,7 @@ const LINKS = [
   { to: "/directory", label: "Find a market" },
   { to: "/produce-guide", label: "Produce guide" },
   { to: "/seasonal", label: "What's in season" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
