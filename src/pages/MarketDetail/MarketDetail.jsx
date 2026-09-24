@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
+import BookmarkButton from '../../components/BookmarkButton/BookmarkButton'
 import './MarketDetail.css'
-import{useContext} from 'react'
+import { useContext } from 'react'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
 
 export default function MarketDetail() {
@@ -92,13 +93,7 @@ export default function MarketDetail() {
               </li>
             </ul>
 
-            <div className="detail-card">
-              <h3>Visit info</h3>
-              <ul className="info-list">
-                {/* ...address, days, hours unchanged... */}
-              </ul>
-              <BookmarkButton kind="market" id={market.id} />
-            </div>
+            <BookmarkButton kind="market" id={market.id} />
           </div>
 
           <div className="detail-card map-card" aria-hidden="true">
