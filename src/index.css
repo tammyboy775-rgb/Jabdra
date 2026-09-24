@@ -1,0 +1,177 @@
+/* ============================================
+   FreshFind — Design tokens
+   Farm-stand signage aesthetic on a light,
+   paper-white base. Deep green + mustard gold
+   as the identity colors; brick red used only
+   as a small utility accent.
+   ============================================ */
+
+:root {
+  /* Palette */
+  --paper: #fbf9f4;         /* base background */
+  --paper-alt: #f2ece0;     /* alternating section background */
+  --card: #ffffff;          /* card surface */
+  --ink: #1c1c16;           /* primary text */
+  --ink-soft: #5b5c50;      /* secondary text */
+  --line: #e3dcc9;          /* hairline borders */
+
+  --green: #2f5233;         /* primary accent */
+  --green-deep: #203a26;    /* chalkboard panel background */
+  --green-pale: #e6efe1;    /* pale green panel fill */
+  --gold: #d9a441;          /* secondary accent */
+  --gold-pale: #faf0d8;
+  --brick: #c1502e;         /* utility accent — sparingly */
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max-width: 1280px;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.08;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* shared page scaffolding */
+.page-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.25rem var(--gutter);
+}
+
+.page-section.tight {
+  padding-top: 1.5rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.section-heading .kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+
+.link-more {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.link-more:hover {
+  color: var(--brick);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--green-deep);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
