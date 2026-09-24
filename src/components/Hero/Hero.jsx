@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Icon } from '../../icons'
 import './Hero.css'
+import heroImage from '../../assets/images/heroImage.png'
 
 export default function Hero() {
   const [query, setQuery] = useState('')
@@ -47,20 +48,11 @@ export default function Hero() {
 
         <div className="hero-art reveal" style={{ '--d': '0.2s' }} aria-hidden="true">
           <div className="crate">
-            <span className="crate-slat" />
-            <span className="crate-slat" />
-            <span className="crate-slat" />
-            <div className="crate-produce">
-              <span className="veg veg-1" />
-              <span className="veg veg-2" />
-              <span className="veg veg-3" />
-              <span className="veg veg-4" />
-              <span className="veg veg-5" />
+            <img src={heroImage} alt="Nigerian woman sell farm produce" />
             </div>
           </div>
           <span className="hero-stamp">FRESH TODAY</span>
         </div>
-      </div>
     </section>
   )
 }
