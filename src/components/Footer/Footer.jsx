@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="ff-footer-bottom">
-        <p>Demo project — market and produce data shown here is illustrative.</p>
+        <p>Jabdra</p>
       </div>
     </footer>
   )

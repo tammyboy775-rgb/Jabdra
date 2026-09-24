@@ -2,13 +2,22 @@ import { useState } from 'react'
 import { Icon } from '../../icons'
 import './Chatbot.css'
 
-const QUICK_QUESTIONS = [
+
+export default function Chatbot() {
+  const [open, setOpen] = useState(false)
+  const [messages, setMessages] = useState([
+    { from: 'bot', text: "Hi! I'm the FreshFind assistant. Ask me about markets, hours, or what's in season." },
+  ])
+  const [draft, setDraft] = useState('');
+
+  const QUICK_QUESTIONS = [
   'Which markets are open today?',
   "What's in season right now?",
   'Is there a market near Old Town?',
+  'Is there any market close to Maryland'
 ]
 
-// A small canned-response layer so the widget is useful without a live
+  // A small canned-response layer so the widget is useful without a live
 // backend wired up yet — swap `reply()` for a real API call when ready.
 function reply(question) {
   const q = question.toLowerCase()
@@ -24,15 +33,12 @@ function reply(question) {
   if (q.includes('hour') || q.includes('time')) {
     return 'Each market detail page lists its exact hours, along with which days it runs and what it typically sells.'
   }
+
+   if (q.includes(('Maryland').toLowerCase())) {
+    return 'There is a food market in mende, Maryland bus top.'
+  }
   return "I can help you find a market, check what's in season, or point you to opening hours — try one of the quick questions below, or ask me directly."
 }
-
-export default function Chatbot() {
-  const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState([
-    { from: 'bot', text: "Hi! I'm the FreshFind assistant. Ask me about markets, hours, or what's in season." },
-  ])
-  const [draft, setDraft] = useState('')
 
   const send = (text) => {
     const value = text ?? draft
