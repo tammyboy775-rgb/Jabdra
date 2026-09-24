@@ -1,0 +1,42 @@
+[
+  {
+    "id": "mile-12",
+    "name": "Mile 12 Market",
+    "city": "Lagos",
+    "state": "Lagos",
+    "location": "Ketu, Lagos",
+    "description": "A major produce market known for fresh fruits, vegetables, grains and other food products.",
+    "categories": ["Fruits", "Vegetables", "Grains"],
+    "image": "/assets/markets/mile-12.jpg"
+  },
+  {
+    "id": "onitsha-main",
+    "name": "Onitsha Main Market",
+    "city": "Onitsha",
+    "state": "Anambra",
+    "location": "Onitsha, Anambra",
+    "description": "A large commercial market with a wide variety of goods and trading activities.",
+    "categories": ["Food", "Household", "General Goods"],
+    "image": "/assets/markets/onitsha-main.jpg"
+  },
+  {
+    "id": "ariaria",
+    "name": "Ariaria International Market",
+    "city": "Aba",
+    "state": "Abia",
+    "location": "Aba, Abia",
+    "description": "A major commercial market known for locally manufactured products, fashion and general merchandise.",
+    "categories": ["Fashion", "Footwear", "General Goods"],
+    "image": "/assets/markets/ariaria.jpg"
+  },
+  {
+    "id": "bodija",
+    "name": "Bodija Market",
+    "city": "Ibadan",
+    "state": "Oyo",
+    "location": "Bodija, Ibadan",
+    "description": "A popular market offering fresh food products, household goods and other everyday items.",
+    "categories": ["Food", "Vegetables", "Household"],
+    "image": "/assets/markets/bodija.jpg"
+  }
+]
