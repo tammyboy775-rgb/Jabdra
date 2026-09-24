@@ -1,0 +1,21 @@
+.bookmark-btn {
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.bookmark-btn:hover {
+  border-color: var(--green);
+}
+
+.bookmark-btn.is-active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--paper);
+}

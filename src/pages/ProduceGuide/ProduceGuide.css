@@ -99,6 +99,10 @@
   text-align: center;
 }
 
+.produce-info .bookmark-btn {
+  margin-top: 0.75rem;
+}
+
 @media (max-width: 760px) {
   .produce-list-head,
   .produce-row {

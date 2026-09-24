@@ -5,7 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import { MarketsProvider } from './context/MarketsContext.jsx'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <MarketsProvider>
       <BrowserRouter>
@@ -13,4 +13,4 @@ createRoot(document.getElementById('root')).render(
       </BrowserRouter>
     </MarketsProvider>
   </StrictMode>,
-)
+);
