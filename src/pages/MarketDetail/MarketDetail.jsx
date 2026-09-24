@@ -1,11 +1,20 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
-import { markets } from '../../data/marketData'
+import { useMarkets } from '../../context/MarketsContext'
 import './MarketDetail.css'
 
 export default function MarketDetail() {
   const { id } = useParams()
+  const { markets, isLoading, error } = useMarkets()
   const market = markets.find((m) => m.id === id)
+
+  if (isLoading) {
+    return <section className="page-section market-detail"><p>Loading market...</p></section>
+  }
+
+  if (error) {
+    return <section className="page-section market-detail"><p>Markets are temporarily unavailable.</p></section>
+  }
 
   if (!market) {
     return (

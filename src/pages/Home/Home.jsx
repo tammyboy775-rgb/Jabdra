@@ -3,7 +3,7 @@ import Hero from '../../components/Hero/Hero'
 import MarketCard from '../../components/MarketCard/MarketCard'
 import SeasonalPicks from '../../components/SeasonalPicks/SeasonalPicks'
 import { Icon } from '../../icons'
-import { markets } from '../../data/marketData'
+import { useMarkets } from '../../context/MarketsContext'
 import './Home.css'
 
 const STEPS = [
@@ -13,6 +13,7 @@ const STEPS = [
 ]
 
 export default function Home() {
+  const { markets, isLoading, error } = useMarkets()
   const featured = markets.slice(0, 3)
 
   return (
@@ -27,9 +28,13 @@ export default function Home() {
           </div>
           <Link to="/directory" className="link-more">Browse all markets</Link>
         </div>
-        <div className="home-grid">
-          {featured.map((m) => <MarketCard key={m.id} market={m} />)}
-        </div>
+        {isLoading && <p>Loading markets...</p>}
+        {error && <p>Markets are temporarily unavailable.</p>}
+        {!isLoading && !error && (
+          <div className="home-grid">
+            {featured.map((m) => <MarketCard key={m.id} market={m} />)}
+          </div>
+        )}
       </section>
 
       <section className="page-section home-split">
