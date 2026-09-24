@@ -1,0 +1,25 @@
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.directory-empty {
+  background: var(--paper-alt);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .directory-grid {
+    grid-template-columns: 1fr;
+  }
+}
