@@ -1,0 +1,152 @@
+.market-detail {
+  padding-top: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+.back-arrow {
+  transform: rotate(180deg);
+}
+
+.market-hero {
+  background: var(--green-pale);
+  border-radius: 18px;
+  padding: 2.25rem;
+  margin-bottom: 2rem;
+  border-left: 6px solid var(--green);
+}
+
+.market-hero.swatch-gold {
+  background: var(--gold-pale);
+  border-left-color: var(--gold);
+}
+
+.market-hero.swatch-brick {
+  background: #fbe9e2;
+  border-left-color: var(--brick);
+}
+
+.market-hero-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--card);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.9rem;
+}
+
+.market-hero h1 {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  margin-bottom: 0.75rem;
+}
+
+.market-hero p {
+  max-width: 60ch;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.market-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.market-detail-main,
+.market-detail-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.detail-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.info-list li {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--green);
+}
+
+.info-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: none;
+}
+
+.info-value {
+  font-size: 0.9rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.map-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  aspect-ratio: 4 / 3;
+  background: repeating-linear-gradient(45deg, var(--green-pale), var(--green-pale) 10px, var(--paper-alt) 10px, var(--paper-alt) 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--green);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+}
+
+.detail-card .bookmark-btn {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .market-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

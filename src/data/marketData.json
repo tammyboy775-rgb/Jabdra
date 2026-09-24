@@ -1,0 +1,779 @@
+{
+
+  "markets": [
+    {
+      "id": "mile-12",
+      "name": "Mile 12 Market",
+      "neighborhood": "Ketu",
+      "address": "Ikorodu Road, Ketu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Yam",
+        "Beans",
+        "Maize",
+        "Rice",
+        "Banana",
+        "Plantain"
+      ],
+      "coordinates": {
+        "lat": 6.60896,
+        "lon": 3.39326
+      }
+    },
+    {
+      "id": "oyingbo",
+      "name": "Oyingbo Market",
+      "neighborhood": "Oyingbo",
+      "address": "Oyingbo, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Vegetables",
+        "Fruits",
+        "Peppers",
+        "Grains",
+        "Plantain",
+        "Yam"
+      ],
+      "coordinates": {
+        "lat": 6.47647,
+        "lon": 3.38231
+      }
+    },
+    {
+      "id": "oke-odo",
+      "name": "Oke-Odo Market",
+      "neighborhood": "Agbado-Oke Odo",
+      "address": "Agbado-Oke Odo, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Yam",
+        "Garri",
+        "Beans",
+        "Peppers",
+        "Tomatoes",
+        "Vegetables",
+        "Onions",
+        "Maize",
+        "Groundnuts"
+      ],
+      "coordinates": {
+        "lat": 6.61810,
+        "lon": 3.26170
+      }
+    },
+    {
+      "id": "iddo",
+      "name": "Iddo Market",
+      "neighborhood": "Iddo",
+      "address": "Iddo, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Rice",
+        "Beans",
+        "Groundnuts",
+        "Grains",
+        "Palm Oil"
+      ],
+      "coordinates": {
+        "lat": 6.46720,
+        "lon": 3.37780
+      }
+    },
+    {
+      "id": "epe-fish",
+      "name": "Epe Fish Market",
+      "neighborhood": "Epe",
+      "address": "Epe, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Fresh Fish",
+        "Catfish",
+        "Tilapia",
+        "Crayfish",
+        "Prawns"
+      ],
+      "coordinates": {
+        "lat": 6.58460,
+        "lon": 3.98360
+      }
+    },
+    {
+      "id": "daleko",
+      "name": "Daleko Market",
+      "neighborhood": "Mushin",
+      "address": "Daleko, Mushin, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Rice",
+        "Beans",
+        "Maize",
+        "Groundnuts",
+        "Grains",
+        "Palm Oil"
+      ],
+      "coordinates": {
+        "lat": 6.52090,
+        "lon": 3.34770
+      }
+    },
+    {
+      "id": "idi-oro",
+      "name": "Idi-Oro Market",
+      "neighborhood": "Mushin",
+      "address": "Idi-Oro, Mushin, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Plantain",
+        "Garri",
+        "Yam",
+        "Cassava"
+      ],
+      "coordinates": {
+        "lat": 6.53250,
+        "lon": 3.35020
+      }
+    },
+    {
+      "id": "ketu-market",
+      "name": "Ketu Market",
+      "neighborhood": "Ketu",
+      "address": "Ketu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Vegetables",
+        "Plantain",
+        "Banana",
+        "Yam"
+      ],
+      "coordinates": {
+        "lat": 6.60070,
+        "lon": 3.38700
+      }
+    },
+    {
+      "id": "jakande-market",
+      "name": "Jakande Market",
+      "neighborhood": "Jakande",
+      "address": "Jakande, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Fruits",
+        "Vegetables",
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Plantain",
+        "Banana"
+      ],
+      "coordinates": {
+        "lat": 6.44420,
+        "lon": 3.54370
+      }
+    },
+    {
+      "id": "epe-market",
+      "name": "Epe Market",
+      "neighborhood": "Epe",
+      "address": "Epe, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Vegetables",
+        "Fruits",
+        "Yam",
+        "Cassava",
+        "Plantain",
+        "Maize",
+        "Beans"
+      ],
+      "coordinates": {
+        "lat": 6.58400,
+        "lon": 3.98300
+      }
+    },
+    {
+      "id": "agric-market-ikorodu",
+      "name": "Agric Market",
+      "neighborhood": "Ikorodu",
+      "address": "Agric, Ikorodu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Yam",
+        "Cassava",
+        "Plantain",
+        "Vegetables",
+        "Pepper",
+        "Maize"
+      ],
+      "coordinates": {
+        "lat": 6.61940,
+        "lon": 3.51050
+      }
+    },
+    {
+      "id": "ipakodo-market",
+      "name": "Ipakodo Market",
+      "neighborhood": "Ipakodo",
+      "address": "Ipakodo, Ikorodu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Plantain",
+        "Banana",
+        "Cassava",
+        "Yam",
+        "Vegetables",
+        "Fruits"
+      ],
+      "coordinates": {
+        "lat": 6.62350,
+        "lon": 3.48520
+      }
+    },
+    {
+      "id": "ojo-market",
+      "name": "Ojo Market",
+      "neighborhood": "Ojo",
+      "address": "Ojo, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Yam",
+        "Plantain",
+        "Vegetables",
+        "Fruits"
+      ],
+      "coordinates": {
+        "lat": 6.46440,
+        "lon": 3.18210
+      }
+    },
+    {
+      "id": "iyana-iba-market",
+      "name": "Iyana-Iba Market",
+      "neighborhood": "Iyana-Iba",
+      "address": "Iyana-Iba, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Vegetables",
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Yam",
+        "Plantain",
+        "Beans"
+      ],
+      "coordinates": {
+        "lat": 6.46920,
+        "lon": 3.19350
+      }
+    },
+    {
+      "id": "agege-market",
+      "name": "Agege Market",
+      "neighborhood": "Agege",
+      "address": "Agege, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Yam",
+        "Garri",
+        "Beans",
+        "Vegetables"
+      ],
+      "coordinates": {
+        "lat": 6.62580,
+        "lon": 3.32510
+      }
+    },
+    {
+      "id": "ogba-market",
+      "name": "Ogba Market",
+      "neighborhood": "Ogba",
+      "address": "Ogba, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Fruits",
+        "Vegetables",
+        "Tomatoes",
+        "Peppers",
+        "Plantain",
+        "Banana",
+        "Yam"
+      ],
+      "coordinates": {
+        "lat": 6.63720,
+        "lon": 3.30850
+      }
+    },
+    {
+      "id": "ipaja-market",
+      "name": "Ipaja Market",
+      "neighborhood": "Ipaja",
+      "address": "Ipaja, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Yam",
+        "Cassava",
+        "Plantain",
+        "Beans",
+        "Tomatoes",
+        "Peppers",
+        "Vegetables"
+      ],
+      "coordinates": {
+        "lat": 6.60560,
+        "lon": 3.25690
+      }
+    },
+    {
+      "id": "bariga-market",
+      "name": "Bariga Market",
+      "neighborhood": "Bariga",
+      "address": "Bariga, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Vegetables",
+        "Fruits",
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Plantain"
+      ],
+      "coordinates": {
+        "lat": 6.53340,
+        "lon": 3.39370
+      }
+    },
+    {
+      "id": "somolu-market",
+      "name": "Somolu Market",
+      "neighborhood": "Somolu",
+      "address": "Somolu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Vegetables",
+        "Yam",
+        "Plantain",
+        "Beans"
+      ],
+      "coordinates": {
+        "lat": 6.53100,
+        "lon": 3.38360
+      }
+    },
+    {
+      "id": "surulere-market",
+      "name": "Surulere Market",
+      "neighborhood": "Surulere",
+      "address": "Surulere, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Vegetables",
+        "Fruits",
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Plantain",
+        "Yam"
+      ],
+      "coordinates": {
+        "lat": 6.49690,
+        "lon": 3.35980
+      }
+    },
+    {
+      "id": "mushin-market",
+      "name": "Mushin Market",
+      "neighborhood": "Mushin",
+      "address": "Mushin, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Vegetables",
+        "Yam",
+        "Beans",
+        "Plantain"
+      ],
+      "coordinates": {
+        "lat": 6.52600,
+        "lon": 3.35050
+      }
+    },
+    {
+      "id": "oshodi-market",
+      "name": "Oshodi Market",
+      "neighborhood": "Oshodi",
+      "address": "Oshodi, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Fruits",
+        "Vegetables",
+        "Plantain",
+        "Banana"
+      ],
+      "coordinates": {
+        "lat": 6.55380,
+        "lon": 3.34420
+      }
+    },
+    {
+      "id": "ikorodu-market",
+      "name": "Ikorodu Market",
+      "neighborhood": "Ikorodu",
+      "address": "Ikorodu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Yam",
+        "Cassava",
+        "Plantain",
+        "Banana",
+        "Vegetables",
+        "Maize",
+        "Beans"
+      ],
+      "coordinates": {
+        "lat": 6.61940,
+        "lon": 3.51030
+      }
+    },
+    {
+      "id": "badagry-market",
+      "name": "Badagry Market",
+      "neighborhood": "Badagry",
+      "address": "Badagry, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Cassava",
+        "Yam",
+        "Plantain",
+        "Maize",
+        "Beans",
+        "Vegetables",
+        "Fruits"
+      ],
+      "coordinates": {
+        "lat": 6.41670,
+        "lon": 2.88330
+      }
+    },
+    {
+      "id": "ikorodu-agric",
+      "name": "Ikorodu Agric Market",
+      "neighborhood": "Ikorodu",
+      "address": "Ikorodu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Plantain",
+        "Cassava",
+        "Yam",
+        "Maize",
+        "Vegetables",
+        "Banana"
+      ],
+      "coordinates": {
+        "lat": 6.62100,
+        "lon": 3.50600
+      }
+    },
+    {
+      "id": "epe-agric-market",
+      "name": "Epe Agricultural Market",
+      "neighborhood": "Epe",
+      "address": "Epe, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Yam",
+        "Cassava",
+        "Plantain",
+        "Maize",
+        "Vegetables",
+        "Fruits"
+      ],
+      "coordinates": {
+        "lat": 6.58380,
+        "lon": 3.98320
+      }
+    },
+    {
+      "id": "ikorodu-vegetable-market",
+      "name": "Ikorodu Vegetable Market",
+      "neighborhood": "Ikorodu",
+      "address": "Ikorodu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Vegetables",
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Okra",
+        "Garden Egg",
+        "Plantain"
+      ],
+      "coordinates": {
+        "lat": 6.62020,
+        "lon": 3.50820
+      }
+    },
+    {
+      "id": "lagos-island-food-market",
+      "name": "Lagos Island Food Market",
+      "neighborhood": "Lagos Island",
+      "address": "Lagos Island, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Fruits",
+        "Vegetables",
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Plantain",
+        "Yam"
+      ],
+      "coordinates": {
+        "lat": 6.45490,
+        "lon": 3.39470
+      }
+    },
+    {
+      "id": "lekki-farmers-market",
+      "name": "Lekki Farmers Market",
+      "neighborhood": "Lekki",
+      "address": "Lekki, Lagos",
+      "days": ["Sat", "Sun"],
+      "hours": "Morning – Afternoon",
+      "products": [
+        "Fresh Fruits",
+        "Vegetables",
+        "Plantain",
+        "Banana",
+        "Yam",
+        "Tomatoes",
+        "Peppers"
+      ],
+      "coordinates": {
+        "lat": 6.44740,
+        "lon": 3.47000
+      }
+    },
+    {
+      "id": "ketu-farm-market",
+      "name": "Ketu Farm Produce Market",
+      "neighborhood": "Ketu",
+      "address": "Ketu, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Early morning – Evening",
+      "products": [
+        "Tomatoes",
+        "Peppers",
+        "Onions",
+        "Yam",
+        "Plantain",
+        "Banana",
+        "Vegetables"
+      ],
+      "coordinates": {
+        "lat": 6.60020,
+        "lon": 3.38910
+      }
+    },
+    {
+      "id": "oke-aro-market",
+      "name": "Oke-Aro Market",
+      "neighborhood": "Oke-Aro",
+      "address": "Oke-Aro, Lagos",
+      "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      "hours": "Morning – Evening",
+      "products": [
+        "Vegetables",
+        "Tomatoes",
+        "Peppers",
+        "Plantain",
+        "Cassava",
+        "Yam",
+        "Maize"
+      ],
+      "coordinates": {
+        "lat": 6.69050,
+        "lon": 3.25520
+      }
+    }
+  ],
+
+  "allDays": [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
+  ],
+
+  "allProductTypes": [
+    "Vegetables",
+    "Fruit",
+    "Seafood",
+    "Meat",
+    "Dairy",
+    "Cheese",
+    "Eggs",
+    "Bread",
+    "Baked goods",
+    "Honey",
+    "Preserves",
+    "Herbs",
+    "Flowers",
+    "Prepared food"
+  ],
+
+  "produceGuide": [
+    {
+      "name": "Asparagus",
+      "season": [2, 5],
+      "tip": "Look for tight, closed tips and firm stalks."
+    },
+    {
+      "name": "Strawberries",
+      "season": [3, 6],
+      "tip": "Best flavor comes from berries picked within a day or two."
+    },
+    {
+      "name": "Sweet corn",
+      "season": [5, 8],
+      "tip": "Buy same-day where possible — sugars fade fast after picking."
+    },
+    {
+      "name": "Tomatoes",
+      "season": [5, 9],
+      "tip": "Ask growers which variety is ripest that day rather than picking by looks."
+    },
+    {
+      "name": "Zucchini",
+      "season": [5, 9],
+      "tip": "Smaller squash are more tender than oversized ones."
+    },
+    {
+      "name": "Peaches",
+      "season": [6, 8],
+      "tip": "A ripe peach smells sweet at the stem end."
+    },
+    {
+      "name": "Apples",
+      "season": [8, 11],
+      "tip": "Different varieties peak at different weeks — ask what just came in."
+    },
+    {
+      "name": "Winter squash",
+      "season": [8, 11],
+      "tip": "Cure for a few days at room temperature before storing."
+    },
+    {
+      "name": "Root vegetables",
+      "season": [9, 2],
+      "tip": "Carrots and parsnips sweeten after the season's first frost."
+    },
+    {
+      "name": "Kale & hardy greens",
+      "season": [9, 3],
+      "tip": "Cold-weather greens are usually less bitter than summer ones."
+    },
+    {
+      "name": "Citrus",
+      "season": [10, 1],
+      "tip": "Heavier fruit for its size usually means juicier segments."
+    },
+    {
+      "name": "Mushrooms",
+      "season": [0, 11],
+      "tip": "Available most of the year from indoor growers — check the stall for what's freshly picked."
+    }
+  ],
+
+  "seasonalTips": {
+    "spring": {
+      "label": "Spring",
+      "blurb": "The first tender vegetables of the year are showing up alongside the last of the stored winter roots.",
+      "picks": [
+        "Asparagus",
+        "Strawberries",
+        "Spring greens",
+        "Radishes"
+      ]
+    },
+    "summer": {
+      "label": "Summer",
+      "blurb": "Peak season — stalls are at their fullest with stone fruit, tomatoes and sweet corn.",
+      "picks": [
+        "Sweet corn",
+        "Tomatoes",
+        "Peaches",
+        "Zucchini"
+      ]
+    },
+    "autumn": {
+      "label": "Autumn",
+      "blurb": "Harvest season for storage crops — a good time to stock up on things that keep.",
+      "picks": [
+        "Apples",
+        "Winter squash",
+        "Root vegetables",
+        "Pears"
+      ]
+    },
+    "winter": {
+      "label": "Winter",
+      "blurb": "A quieter season, led by hardy greens, stored roots and indoor-grown mushrooms.",
+      "picks": [
+        "Kale & hardy greens",
+        "Citrus",
+        "Root vegetables",
+        "Mushrooms"
+      ]
+    }
+  }
+}
