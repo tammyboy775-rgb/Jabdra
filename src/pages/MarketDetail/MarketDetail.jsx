@@ -22,15 +22,18 @@ export default function MarketDetail() {
     return (
       <section className="page-section market-detail">
         <p>We couldn't find that market.</p>
-        <Link to="/directory" className="link-more">Back to the directory</Link>
+        <Link to="/directory" className="link-more">
+          Back to the directory
+        </Link>
       </section>
-    )
+    );
   }
 
   return (
     <section className="page-section market-detail">
       <Link to="/directory" className="back-link">
-        <Icon name="arrow-right" size={14} className="back-arrow" /> Back to all markets
+        <Icon name="arrow-right" size={14} className="back-arrow" /> Back to all
+        markets
       </Link>
 
       <div className={`market-hero swatch-${market.swatch}`}>
@@ -45,14 +48,20 @@ export default function MarketDetail() {
             <h3>Typical products</h3>
             <div className="products-grid">
               {market.products.map((p) => (
-                <span key={p} className="product-pill">{p}</span>
+                <span key={p} className="product-pill">
+                  {p}
+                </span>
               ))}
             </div>
           </div>
 
           <div className="detail-card">
             <h3>About this market</h3>
-            <p>{market.description} With around {market.vendors} vendors on a typical week, it's one of the larger markets in {market.neighborhood}.</p>
+            <p>
+              {market.description} With around {market.vendors} vendors on a
+              typical week, it's one of the larger markets in{" "}
+              {market.neighborhood}.
+            </p>
           </div>
         </div>
 
@@ -71,7 +80,7 @@ export default function MarketDetail() {
                 <Icon name="calendar" size={16} />
                 <div>
                   <p className="info-label">Open days</p>
-                  <p className="info-value">{market.days.join(', ')}</p>
+                  <p className="info-value">{market.days.join(", ")}</p>
                 </div>
               </li>
               <li>
@@ -82,6 +91,14 @@ export default function MarketDetail() {
                 </div>
               </li>
             </ul>
+
+            <div className="detail-card">
+              <h3>Visit info</h3>
+              <ul className="info-list">
+                {/* ...address, days, hours unchanged... */}
+              </ul>
+              <BookmarkButton kind="market" id={market.id} />
+            </div>
           </div>
 
           <div className="detail-card map-card" aria-hidden="true">
@@ -93,5 +110,5 @@ export default function MarketDetail() {
         </aside>
       </div>
     </section>
-  )
+  );
 }

@@ -141,6 +141,10 @@
   padding: 1rem;
 }
 
+.detail-card .bookmark-btn {
+  margin-top: 1.25rem;
+}
+
 @media (max-width: 900px) {
   .market-detail-grid {
     grid-template-columns: 1fr;
