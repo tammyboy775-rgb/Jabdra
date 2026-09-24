@@ -1,0 +1,137 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: saturate(1.1);
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--green-pale);
+  color: var(--green);
+}
+
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  flex: 1;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 0.3rem 0;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--ink);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-cta {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-drawer {
+  display: none;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.nav-drawer.is-open {
+  max-height: 300px;
+}
+
+.nav-drawer a {
+  padding: 0.9rem var(--gutter);
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-drawer {
+    display: flex;
+  }
+  .nav-cta span {
+    display: none;
+  }
+}

@@ -1,0 +1,90 @@
+.ff-footer {
+  background: var(--green-deep);
+  color: var(--paper);
+  margin-top: 2rem;
+}
+
+.ff-footer-top {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem var(--gutter) 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.ff-footer-brand {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 320px;
+}
+
+.ff-footer-brand .brand-mark {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(251, 249, 244, 0.12);
+  color: var(--gold);
+}
+
+.ff-footer-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.ff-footer-tag {
+  font-size: 0.85rem;
+  color: rgba(251, 249, 244, 0.7);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+.ff-footer-columns {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.ff-footer-columns h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+
+.ff-footer-columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ff-footer-columns a {
+  font-size: 0.88rem;
+  color: rgba(251, 249, 244, 0.75);
+  transition: color 0.15s ease;
+}
+
+.ff-footer-columns a:hover {
+  color: var(--paper);
+}
+
+.ff-footer-bottom {
+  border-top: 1px solid rgba(251, 249, 244, 0.15);
+  padding: 1.1rem var(--gutter);
+  text-align: center;
+}
+
+.ff-footer-bottom p {
+  font-size: 0.78rem;
+  color: rgba(251, 249, 244, 0.55);
+}
