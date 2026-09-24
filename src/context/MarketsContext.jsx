@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
-const MarketsContext = createContext(null)
+export const MarketsContext = createContext(null)
 
 export function MarketsProvider({ children }) {
   const [markets, setMarkets] = useState([])
@@ -10,14 +10,16 @@ export function MarketsProvider({ children }) {
   useEffect(() => {
     let isCurrent = true
 
-    fetch('/data/markets.json')
+    fetch('../src/data/marketData.json')
       .then((response) => {
+        console.log('Markets fetch response:', response) // Log the response to the console
         if (!response.ok) throw new Error(`Markets request failed (${response.status})`)
         return response.json()
       })
       .then((data) => {
+        console.log('Markets fetch data:', data) // Log the fetched data to the console
         if (!Array.isArray(data)) throw new Error('Markets data must be an array')
-        if (isCurrent) setMarkets(data)
+        if (isCurrent) setMarkets(data.markets)
       })
       .catch((fetchError) => {
         if (isCurrent) setError(fetchError)
@@ -38,8 +40,4 @@ export function MarketsProvider({ children }) {
   )
 }
 
-export function useMarkets() {
-  const context = useContext(MarketsContext)
-  if (!context) throw new Error('useMarkets must be used inside MarketsProvider')
-  return context
-}
+

@@ -3,8 +3,10 @@ import Hero from '../../components/Hero/Hero'
 import MarketCard from '../../components/MarketCard/MarketCard'
 import SeasonalPicks from '../../components/SeasonalPicks/SeasonalPicks'
 import { Icon } from '../../icons'
-import { useMarkets } from '../../context/MarketsContext'
 import './Home.css'
+import { useContext } from 'react'
+import { MarketsContext } from '../../context/MarketsContext.jsx'
+
 
 const STEPS = [
   { icon: 'search', title: 'Search nearby', text: 'Filter markets by neighborhood, day, or what they sell.' },
@@ -13,9 +15,10 @@ const STEPS = [
 ]
 
 export default function Home() {
-  const { markets, isLoading, error } = useMarkets()
+  const { markets, isLoading, error } = useContext(MarketsContext)
   const featured = markets.slice(0, 3)
 
+  console.log('Markets in Home component:', markets) // Log the markets state to the console
   return (
     <>
       <Hero />

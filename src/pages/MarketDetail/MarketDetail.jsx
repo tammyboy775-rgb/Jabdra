@@ -1,11 +1,13 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
-import { useMarkets } from '../../context/MarketsContext'
 import './MarketDetail.css'
+import{useContext} from 'react'
+import { MarketsContext } from '../../context/MarketsContext.jsx'
 
 export default function MarketDetail() {
+  const { markets, isLoading, error } = useContext(MarketsContext)
+
   const { id } = useParams()
-  const { markets, isLoading, error } = useMarkets()
   const market = markets.find((m) => m.id === id)
 
   if (isLoading) {

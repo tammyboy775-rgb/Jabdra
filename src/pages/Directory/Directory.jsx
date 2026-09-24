@@ -2,11 +2,12 @@ import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SearchFilter from '../../components/SearchFilter/SearchFilter'
 import MarketCard from '../../components/MarketCard/MarketCard'
-import { useMarkets } from '../../context/MarketsContext'
+import { useContext } from 'react'
 import './Directory.css'
+import { MarketsContext } from '../../context/MarketsContext.jsx'
 
 export default function Directory() {
-  const { markets, isLoading, error } = useMarkets()
+  const { markets, isLoading, error } = useContext(MarketsContext)
   const [params] = useSearchParams()
   const [query, setQuery] = useState(params.get('q') || '')
   const [activeDay, setActiveDay] = useState(params.get('day') || 'All')
@@ -23,7 +24,7 @@ export default function Directory() {
       const matchesProduct = activeProduct === 'All' || m.products.includes(activeProduct)
       return matchesQuery && matchesDay && matchesProduct
     })
-  }, [query, activeDay, activeProduct])
+  }, [markets, query, activeDay, activeProduct])
 
   return (
     <section className="page-section directory-page">

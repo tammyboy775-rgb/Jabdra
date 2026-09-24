@@ -1,0 +1,209 @@
+{
+  "markets": [
+    {
+      "id": "harbor-row",
+      "name": "Harbor Row Market",
+      "neighborhood": "Harbor District",
+      "address": "12 Wharf Street, Millhaven",
+      "days": ["Sat", "Sun"],
+      "hours": "8:00 AM – 1:00 PM",
+      "products": ["Vegetables", "Seafood", "Flowers", "Baked goods"],
+      "vendors": 34,
+      "description": "A dockside market known for morning-catch seafood stalls and a long row of cut-flower growers.",
+      "swatch": "green"
+    },
+    {
+      "id": "oldtown-square",
+      "name": "Old Town Square Market",
+      "neighborhood": "Old Town",
+      "address": "4 Courthouse Square, Millhaven",
+      "days": ["Wed", "Sat"],
+      "hours": "7:30 AM – 12:30 PM",
+      "products": ["Vegetables", "Fruit", "Cheese", "Honey"],
+      "vendors": 51,
+      "description": "Millhaven's largest and oldest market, held in the square since 1974. Go early for the cheese counter.",
+      "swatch": "gold"
+    },
+    {
+      "id": "north-fields",
+      "name": "North Fields Growers Market",
+      "neighborhood": "North Fields",
+      "address": "900 Orchard Lane, Millhaven",
+      "days": ["Sun"],
+      "hours": "9:00 AM – 2:00 PM",
+      "products": ["Fruit", "Vegetables", "Eggs", "Preserves"],
+      "vendors": 22,
+      "description": "A grower-only market surrounded by orchards — most stalls are run by the farmers themselves.",
+      "swatch": "brick"
+    },
+    {
+      "id": "riverside-lane",
+      "name": "Riverside Lane Market",
+      "neighborhood": "Riverside",
+      "address": "77 Millrace Path, Millhaven",
+      "days": ["Tue", "Thu"],
+      "hours": "3:00 PM – 7:00 PM",
+      "products": ["Vegetables", "Bread", "Herbs", "Prepared food"],
+      "vendors": 18,
+      "description": "An after-work weekday market with a strong lineup of bakers and ready-to-eat vendors.",
+      "swatch": "green"
+    },
+    {
+      "id": "south-commons",
+      "name": "South Commons Market",
+      "neighborhood": "South Commons",
+      "address": "210 Meridian Ave, Millhaven",
+      "days": ["Sat"],
+      "hours": "8:00 AM – 12:00 PM",
+      "products": ["Vegetables", "Fruit", "Dairy", "Flowers"],
+      "vendors": 40,
+      "description": "A family-friendly Saturday market with a small playground and a weekly live-music slot.",
+      "swatch": "gold"
+    },
+    {
+      "id": "east-mill",
+      "name": "East Mill Farmstand Collective",
+      "neighborhood": "East Mill",
+      "address": "5 Grist Way, Millhaven",
+      "days": ["Fri", "Sat", "Sun"],
+      "hours": "10:00 AM – 4:00 PM",
+      "products": ["Vegetables", "Meat", "Cheese", "Preserves"],
+      "vendors": 15,
+      "description": "A weekend-long indoor collective of year-round farmstands, handy for market visits in bad weather.",
+      "swatch": "brick"
+    }
+  ],
+
+  "allDays": [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
+  ],
+
+  "allProductTypes": [
+    "Vegetables",
+    "Fruit",
+    "Seafood",
+    "Meat",
+    "Dairy",
+    "Cheese",
+    "Eggs",
+    "Bread",
+    "Baked goods",
+    "Honey",
+    "Preserves",
+    "Herbs",
+    "Flowers",
+    "Prepared food"
+  ],
+
+  "produceGuide": [
+    {
+      "name": "Asparagus",
+      "season": [2, 5],
+      "tip": "Look for tight, closed tips and firm stalks."
+    },
+    {
+      "name": "Strawberries",
+      "season": [3, 6],
+      "tip": "Best flavor comes from berries picked within a day or two."
+    },
+    {
+      "name": "Sweet corn",
+      "season": [5, 8],
+      "tip": "Buy same-day where possible — sugars fade fast after picking."
+    },
+    {
+      "name": "Tomatoes",
+      "season": [5, 9],
+      "tip": "Ask growers which variety is ripest that day rather than picking by looks."
+    },
+    {
+      "name": "Zucchini",
+      "season": [5, 9],
+      "tip": "Smaller squash are more tender than oversized ones."
+    },
+    {
+      "name": "Peaches",
+      "season": [6, 8],
+      "tip": "A ripe peach smells sweet at the stem end."
+    },
+    {
+      "name": "Apples",
+      "season": [8, 11],
+      "tip": "Different varieties peak at different weeks — ask what just came in."
+    },
+    {
+      "name": "Winter squash",
+      "season": [8, 11],
+      "tip": "Cure for a few days at room temperature before storing."
+    },
+    {
+      "name": "Root vegetables",
+      "season": [9, 2],
+      "tip": "Carrots and parsnips sweeten after the season's first frost."
+    },
+    {
+      "name": "Kale & hardy greens",
+      "season": [9, 3],
+      "tip": "Cold-weather greens are usually less bitter than summer ones."
+    },
+    {
+      "name": "Citrus",
+      "season": [10, 1],
+      "tip": "Heavier fruit for its size usually means juicier segments."
+    },
+    {
+      "name": "Mushrooms",
+      "season": [0, 11],
+      "tip": "Available most of the year from indoor growers — check the stall for what's freshly picked."
+    }
+  ],
+
+  "seasonalTips": {
+    "spring": {
+      "label": "Spring",
+      "blurb": "The first tender vegetables of the year are showing up alongside the last of the stored winter roots.",
+      "picks": [
+        "Asparagus",
+        "Strawberries",
+        "Spring greens",
+        "Radishes"
+      ]
+    },
+    "summer": {
+      "label": "Summer",
+      "blurb": "Peak season — stalls are at their fullest with stone fruit, tomatoes and sweet corn.",
+      "picks": [
+        "Sweet corn",
+        "Tomatoes",
+        "Peaches",
+        "Zucchini"
+      ]
+    },
+    "autumn": {
+      "label": "Autumn",
+      "blurb": "Harvest season for storage crops — a good time to stock up on things that keep.",
+      "picks": [
+        "Apples",
+        "Winter squash",
+        "Root vegetables",
+        "Pears"
+      ]
+    },
+    "winter": {
+      "label": "Winter",
+      "blurb": "A quieter season, led by hardy greens, stored roots and indoor-grown mushrooms.",
+      "picks": [
+        "Kale & hardy greens",
+        "Citrus",
+        "Root vegetables",
+        "Mushrooms"
+      ]
+    }
+  }
+}
