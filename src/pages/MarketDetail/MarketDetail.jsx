@@ -1,8 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
 import BookmarkButton from '../../components/BookmarkButton/BookmarkButton'
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
-import { isMarketOpen } from '../../utils/marketUtils'
 import './MarketDetail.css'
 import { useContext } from 'react'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
@@ -34,7 +32,6 @@ export default function MarketDetail() {
 
   return (
     <section className="page-section market-detail">
-      <Breadcrumb current={market.name} />
       <Link to="/directory" className="back-link">
         <Icon name="arrow-right" size={14} className="back-arrow" /> Back to all
         markets
@@ -42,7 +39,6 @@ export default function MarketDetail() {
 
       <div className={`market-hero swatch-${market.swatch}`}>
         <span className="market-hero-badge">{market.neighborhood}</span>
-        {isMarketOpen(market) && <span className="market-hero-live">Open right now</span>}
         <h1>{market.name}</h1>
         <p>{market.description}</p>
       </div>
@@ -67,6 +63,17 @@ export default function MarketDetail() {
               typical week, it's one of the larger markets in{" "}
               {market.neighborhood}.
             </p>
+          </div>
+
+          <div className="detail-card map-card" aria-hidden="true">
+            <iframe
+              title={`Map showing ${market.name}`}
+              src={`https://www.google.com/maps?q=${market.coordinates.lat},${market.coordinates.lon}&output=embed`}
+              width="100%"
+              height="520"
+              style={{ border: 0 }}
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
 
@@ -98,13 +105,6 @@ export default function MarketDetail() {
             </ul>
 
             <BookmarkButton kind="market" id={market.id} />
-          </div>
-
-          <div className="detail-card map-card" aria-hidden="true">
-            <div className="map-placeholder">
-              <Icon name="pin" size={22} />
-              <span>{market.address}</span>
-            </div>
           </div>
         </aside>
       </div>
