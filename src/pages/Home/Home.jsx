@@ -3,8 +3,10 @@ import Hero from '../../components/Hero/Hero'
 import MarketCard from '../../components/MarketCard/MarketCard'
 import SeasonalPicks from '../../components/SeasonalPicks/SeasonalPicks'
 import { Icon } from '../../icons'
-import { markets } from '../../data/marketData'
 import './Home.css'
+import { useContext } from 'react'
+import { MarketsContext } from '../../context/MarketsContext.jsx'
+
 
 const STEPS = [
   { icon: 'search', title: 'Search nearby', text: 'Filter markets by neighborhood, day, or what they sell.' },
@@ -13,8 +15,10 @@ const STEPS = [
 ]
 
 export default function Home() {
+  const { markets, isLoading, error } = useContext(MarketsContext)
   const featured = markets.slice(0, 3)
 
+  console.log('Markets in Home component:', markets) // Log the markets state to the console
   return (
     <>
       <Hero />
@@ -27,9 +31,13 @@ export default function Home() {
           </div>
           <Link to="/directory" className="link-more">Browse all markets</Link>
         </div>
-        <div className="home-grid">
-          {featured.map((m) => <MarketCard key={m.id} market={m} />)}
-        </div>
+        {isLoading && <p>Loading markets...</p>}
+        {error && <p>Markets are temporarily unavailable.</p>}
+        {!isLoading && !error && (
+          <div className="home-grid">
+            {featured.map((m) => <MarketCard key={m.id} market={m} />)}
+          </div>
+        )}
       </section>
 
       <section className="page-section home-split">

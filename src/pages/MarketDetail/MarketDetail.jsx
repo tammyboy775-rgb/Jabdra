@@ -1,12 +1,22 @@
-import { Link, useParams } from "react-router-dom";
-import { Icon } from "../../icons";
-import { markets } from "../../data/marketData";
-import BookmarkButton from "../../components/BookmarkButton/BookmarkButton";
-import "./MarketDetail.css";
+import { Link, useParams } from 'react-router-dom'
+import { Icon } from '../../icons'
+import './MarketDetail.css'
+import{useContext} from 'react'
+import { MarketsContext } from '../../context/MarketsContext.jsx'
 
 export default function MarketDetail() {
-  const { id } = useParams();
-  const market = markets.find((m) => m.id === id);
+  const { markets, isLoading, error } = useContext(MarketsContext)
+
+  const { id } = useParams()
+  const market = markets.find((m) => m.id === id)
+
+  if (isLoading) {
+    return <section className="page-section market-detail"><p>Loading market...</p></section>
+  }
+
+  if (error) {
+    return <section className="page-section market-detail"><p>Markets are temporarily unavailable.</p></section>
+  }
 
   if (!market) {
     return (

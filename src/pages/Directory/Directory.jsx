@@ -2,10 +2,12 @@ import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SearchFilter from '../../components/SearchFilter/SearchFilter'
 import MarketCard from '../../components/MarketCard/MarketCard'
-import { markets } from '../../data/marketData'
+import { useContext } from 'react'
 import './Directory.css'
+import { MarketsContext } from '../../context/MarketsContext.jsx'
 
 export default function Directory() {
+  const { markets, isLoading, error } = useContext(MarketsContext)
   const [params] = useSearchParams()
   const [query, setQuery] = useState(params.get('q') || '')
   const [activeDay, setActiveDay] = useState(params.get('day') || 'All')
@@ -22,7 +24,7 @@ export default function Directory() {
       const matchesProduct = activeProduct === 'All' || m.products.includes(activeProduct)
       return matchesQuery && matchesDay && matchesProduct
     })
-  }, [query, activeDay, activeProduct])
+  }, [markets, query, activeDay, activeProduct])
 
   return (
     <section className="page-section directory-page">
@@ -43,7 +45,11 @@ export default function Directory() {
         resultCount={filtered.length}
       />
 
-      {filtered.length > 0 ? (
+      {isLoading ? (
+        <div className="directory-empty"><p>Loading markets...</p></div>
+      ) : error ? (
+        <div className="directory-empty"><p>Markets are temporarily unavailable.</p></div>
+      ) : filtered.length > 0 ? (
         <div className="directory-grid">
           {filtered.map((m) => <MarketCard key={m.id} market={m} />)}
         </div>
