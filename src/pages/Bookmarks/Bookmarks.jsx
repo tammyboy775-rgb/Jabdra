@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useBookmarks } from "../../context/BookmarksContext";
-import { markets, produceGuide } from "../../data/marketData";
+import { MarketsContext } from "../../context/MarketsContext";
+import { produceGuide } from "../../data/marketData";
 import "./Bookmarks.css";
 
 // Turn a saved { kind, id } into something we can display
-function lookup(bookmark) {
+function lookup(bookmark, markets) {
   if (bookmark.kind === "market") {
-    const m = markets.find((x) => x.id === bookmark.id);
+    const m = (markets || []).find((x) => x.id === bookmark.id);
     if (!m) return null;
     return {
       title: m.name,
@@ -54,11 +55,12 @@ function buildExportText(entries) {
 
 export default function Bookmarks() {
   const { bookmarks, toggle, setNote } = useBookmarks();
+  const { markets } = useContext(MarketsContext);
   const [copied, setCopied] = useState(false);
 
   // pair each bookmark with its display info, skipping any we can't find
   const entries = bookmarks
-    .map((b) => ({ b, info: lookup(b) }))
+    .map((b) => ({ b, info: lookup(b, markets) }))
     .filter((e) => e.info);
 
   const exportText = buildExportText(entries);
@@ -168,6 +170,7 @@ export default function Bookmarks() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"
+                  aria-label={`Share list on ${s.label}`}
                 >
                   Share on {s.label}
                 </a>

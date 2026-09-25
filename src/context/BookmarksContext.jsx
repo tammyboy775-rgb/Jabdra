@@ -10,16 +10,18 @@ export function BookmarksProvider({ children }) {
     bookmarks.some((b) => b.kind === kind && b.id === id);
 
   const toggle = (kind, id) => {
-    if (isBookmarked(kind, id)) {
-      setBookmarks(bookmarks.filter((b) => !(b.kind === kind && b.id === id)));
-    } else {
-      setBookmarks([...bookmarks, { kind, id, note: "" }]);
-    }
+    setBookmarks((current) => {
+      if (current.some((b) => b.kind === kind && b.id === id)) {
+        return current.filter((b) => !(b.kind === kind && b.id === id));
+      }
+
+      return [...current, { kind, id, note: "" }];
+    });
   };
 
   const setNote = (kind, id, note) => {
-    setBookmarks(
-      bookmarks.map((b) =>
+    setBookmarks((current) =>
+      current.map((b) =>
         b.kind === kind && b.id === id ? { ...b, note } : b,
       ),
     );

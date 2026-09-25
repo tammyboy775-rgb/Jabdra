@@ -40,9 +40,9 @@ export default function Hero() {
 
           <div className="hero-quicklinks reveal" style={{ '--d': '0.32s' }}>
             <span>Popular:</span>
-            <button onClick={() => navigate('/directory?day=Sat')}>Open Saturdays</button>
-            <button onClick={() => navigate('/produce-guide')}>Produce guide</button>
-            <button onClick={() => navigate('/seasonal')}>What's in season</button>
+            <button type="button" onClick={() => navigate('/directory?day=Sat')}>Open Saturdays</button>
+            <button type="button" onClick={() => navigate('/produce-guide')}>Produce guide</button>
+            <button type="button" onClick={() => navigate('/seasonal')}>What's in season</button>
           </div>
         </div>
 
