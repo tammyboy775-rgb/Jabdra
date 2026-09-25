@@ -2,9 +2,9 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import "./About.css";
 
 const TEAM = [
-  { name: "Mara Ellis", role: "Community director", detail: "Builds relationships with growers, makers, and market hosts." },
-  { name: "Jon Bell", role: "Product lead", detail: "Turns local knowledge into calm, useful planning tools." },
-  { name: "Priya Shah", role: "Market editor", detail: "Keeps schedules, vendor notes, and seasonal tips fresh." },
+  { name: "Derrick Asomugha", role: "Community director", detail: "Builds relationships with growers, makers, and market hosts." },
+  { name: "Emachebe Joshua", role: "Product lead", detail: "Turns local knowledge into calm, useful planning tools." },
+  { name: "Ogunsanya Adebanji", role: "Market editor", detail: "Keeps schedules, vendor notes, and seasonal tips fresh." },
 ];
 
 export default function About() {
