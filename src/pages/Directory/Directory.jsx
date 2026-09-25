@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SearchFilter from '../../components/SearchFilter/SearchFilter'
 import MarketCard from '../../components/MarketCard/MarketCard'
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
+import LiveMarketStatus from '../../components/LiveMarketStatus/LiveMarketStatus'
 import { useContext } from 'react'
 import './Directory.css'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
@@ -28,12 +30,15 @@ export default function Directory() {
 
   return (
     <section className="page-section directory-page">
+      <Breadcrumb current="Find a market" />
       <div className="section-heading">
         <div>
           <span className="kicker">Market directory</span>
           <h2>Find a farmers' market</h2>
         </div>
       </div>
+
+      <LiveMarketStatus markets={markets} />
 
       <SearchFilter
         query={query}

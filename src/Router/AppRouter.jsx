@@ -11,6 +11,7 @@ import ProduceGuide from "../pages/ProduceGuide/ProduceGuide";
 import Seasonal from "../pages/Seasonal/Seasonal";
 import Bookmarks from "../pages/Bookmarks/Bookmarks";
 import Contact from "../pages/Contact/Contact";
+import About from "../pages/About/About";
 
 function AppRouter() {
 	return (
@@ -25,6 +26,7 @@ function AppRouter() {
 				<Route path="/seasonal" element={<Seasonal />} />
 				<Route path="/bookmarks" element={<Bookmarks />} />
 				<Route path="/contact" element={<Contact />} />
+				<Route path="/about" element={<About />} />
 			</Routes>
 
 			<Chatbot />

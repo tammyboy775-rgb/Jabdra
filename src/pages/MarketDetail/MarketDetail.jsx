@@ -1,6 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
 import BookmarkButton from '../../components/BookmarkButton/BookmarkButton'
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
+import { isMarketOpen } from '../../utils/marketUtils'
 import './MarketDetail.css'
 import { useContext } from 'react'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
@@ -32,6 +34,7 @@ export default function MarketDetail() {
 
   return (
     <section className="page-section market-detail">
+      <Breadcrumb current={market.name} />
       <Link to="/directory" className="back-link">
         <Icon name="arrow-right" size={14} className="back-arrow" /> Back to all
         markets
@@ -39,6 +42,7 @@ export default function MarketDetail() {
 
       <div className={`market-hero swatch-${market.swatch}`}>
         <span className="market-hero-badge">{market.neighborhood}</span>
+        {isMarketOpen(market) && <span className="market-hero-live">Open right now</span>}
         <h1>{market.name}</h1>
         <p>{market.description}</p>
       </div>

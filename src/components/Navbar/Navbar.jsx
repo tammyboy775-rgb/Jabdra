@@ -9,6 +9,7 @@ const LINKS = [
   { to: "/directory", label: "Find a market" },
   { to: "/produce-guide", label: "Produce guide" },
   { to: "/seasonal", label: "What's in season" },
+  { to: "/about", label: "About us" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -48,6 +49,12 @@ export default function Navbar() {
           <NavLink to="/bookmarks" className="btn btn-outline nav-cta">
             Bookmarks{bookmarks.length > 0 && ` (${bookmarks.length})`}
           </NavLink>
+          <button type="button" className="nav-auth-button" title="Demo login button">
+            Log in
+          </button>
+          <button type="button" className="nav-auth-button nav-auth-signup" title="Demo signup button">
+            Sign up
+          </button>
           <button
             className="menu-toggle"
             aria-label={open ? "Close menu" : "Open menu"}
