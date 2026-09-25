@@ -1,15 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const BookmarksContext = createContext(null);
 
 export function BookmarksProvider({ children }) {
-  const [bookmarks, setBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useLocalStorage("freshfind-bookmarks", []);
 
-  // is this item already bookmarked?
   const isBookmarked = (kind, id) =>
     bookmarks.some((b) => b.kind === kind && b.id === id);
 
-  // add it if it's not there, remove it if it is
   const toggle = (kind, id) => {
     if (isBookmarked(kind, id)) {
       setBookmarks(bookmarks.filter((b) => !(b.kind === kind && b.id === id)));
@@ -18,7 +17,6 @@ export function BookmarksProvider({ children }) {
     }
   };
 
-  // save a note on a bookmarked item
   const setNote = (kind, id, note) => {
     setBookmarks(
       bookmarks.map((b) =>
