@@ -3,7 +3,7 @@ import './Footer.css'
 
 const COLUMNS = [
   { heading: 'Explore', links: [{ label: 'Find a market', to: '/directory' }, { label: 'Produce guide', to: '/produce-guide' }, { label: "What's in season", to: '/seasonal' }] },
-  { heading: 'Community', links: [{ label: 'For organizers', to: '/' }, { label: 'List your market', to: '/' }, { label: 'Contact us', to: '/' }] },
+  { heading: 'Support', links: [{ label: 'List your market', to: '/directory' }, { label: 'Contact us', to: '/contact' }] },
 ]
 
 export default function Footer() {

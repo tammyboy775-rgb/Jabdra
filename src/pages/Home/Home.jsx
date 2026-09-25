@@ -17,8 +17,7 @@ const STEPS = [
 export default function Home() {
   const { markets, isLoading, error } = useContext(MarketsContext)
   const featured = markets.slice(0, 3)
-
-  console.log('Markets in Home component:', markets) // Log the markets state to the console
+  console.log('Markets in Home component:', markets) // Log the markets data to the console
   return (
     <>
       <Hero />

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "../../icons";
 import BookmarkButton from "../BookmarkButton/BookmarkButton";
+import { isMarketOpen } from "../../utils/marketUtils";
 import "./MarketCard.css";
 
 export default function MarketCard({ market }) {
@@ -10,6 +11,8 @@ export default function MarketCard({ market }) {
         <span className="market-badge">{market.neighborhood}</span>
         <span className="market-vendors">{market.vendors} vendors</span>
       </div>
+
+      {isMarketOpen(market) && <span className="market-open-now">Open now</span>}
 
       <h3 className="market-name">
         <Link to={`/market/${market.id}`}>{market.name}</Link>

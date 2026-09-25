@@ -1,0 +1,18 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.breadcrumb a {
+  color: var(--green);
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--brick);
+}

@@ -83,6 +83,33 @@
   gap: 0.75rem;
 }
 
+.nav-auth-button {
+  padding: 0.35rem 0.15rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.nav-auth-button:hover {
+  color: var(--green);
+}
+
+.nav-auth-signup {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--green);
+  border-radius: var(--radius-sm);
+  color: var(--green);
+}
+
+.nav-auth-signup:hover {
+  background: var(--green);
+  color: var(--paper);
+}
+
 .nav-cta {
   padding: 0.6rem 1.1rem;
   font-size: 0.85rem;
@@ -132,6 +159,10 @@
     display: flex;
   }
   .nav-cta span {
+    display: none;
+  }
+
+  .nav-auth-button {
     display: none;
   }
 }

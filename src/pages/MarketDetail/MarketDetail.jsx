@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
+import BookmarkButton from '../../components/BookmarkButton/BookmarkButton'
 import './MarketDetail.css'
-import{useContext} from 'react'
+import { useContext } from 'react'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
 
 export default function MarketDetail() {
@@ -63,6 +64,17 @@ export default function MarketDetail() {
               {market.neighborhood}.
             </p>
           </div>
+
+          <div className="detail-card map-card" aria-hidden="true">
+            <iframe
+              title={`Map showing ${market.name}`}
+              src={`https://www.google.com/maps?q=${market.coordinates.lat},${market.coordinates.lon}&output=embed`}
+              width="100%"
+              height="520"
+              style={{ border: 0 }}
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
 
         <aside className="market-detail-side">
@@ -92,20 +104,7 @@ export default function MarketDetail() {
               </li>
             </ul>
 
-            <div className="detail-card">
-              <h3>Visit info</h3>
-              <ul className="info-list">
-                {/* ...address, days, hours unchanged... */}
-              </ul>
-              <BookmarkButton kind="market" id={market.id} />
-            </div>
-          </div>
-
-          <div className="detail-card map-card" aria-hidden="true">
-            <div className="map-placeholder">
-              <Icon name="pin" size={22} />
-              <span>{market.address}</span>
-            </div>
+            <BookmarkButton kind="market" id={market.id} />
           </div>
         </aside>
       </div>
