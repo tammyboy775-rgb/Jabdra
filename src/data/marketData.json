@@ -7,7 +7,7 @@
       "neighborhood": "Ketu",
       "address": "Ikorodu Road, Ketu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -30,7 +30,7 @@
       "neighborhood": "Oyingbo",
       "address": "Oyingbo, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Fruits",
@@ -50,7 +50,7 @@
       "neighborhood": "Agbado-Oke Odo",
       "address": "Agbado-Oke Odo, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Yam",
         "Garri",
@@ -73,7 +73,7 @@
       "neighborhood": "Iddo",
       "address": "Iddo, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Rice",
         "Beans",
@@ -92,7 +92,7 @@
       "neighborhood": "Epe",
       "address": "Epe, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Fresh Fish",
         "Catfish",
@@ -111,7 +111,7 @@
       "neighborhood": "Mushin",
       "address": "Daleko, Mushin, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Rice",
         "Beans",
@@ -131,7 +131,7 @@
       "neighborhood": "Mushin",
       "address": "Idi-Oro, Mushin, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Plantain",
         "Garri",
@@ -149,7 +149,7 @@
       "neighborhood": "Ketu",
       "address": "Ketu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -170,7 +170,7 @@
       "neighborhood": "Jakande",
       "address": "Jakande, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Fruits",
         "Vegetables",
@@ -191,7 +191,7 @@
       "neighborhood": "Epe",
       "address": "Epe, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Fruits",
@@ -212,7 +212,7 @@
       "neighborhood": "Ikorodu",
       "address": "Agric, Ikorodu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Yam",
         "Cassava",
@@ -232,7 +232,7 @@
       "neighborhood": "Ipakodo",
       "address": "Ipakodo, Ikorodu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Plantain",
         "Banana",
@@ -252,7 +252,7 @@
       "neighborhood": "Ojo",
       "address": "Ojo, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -273,7 +273,7 @@
       "neighborhood": "Iyana-Iba",
       "address": "Iyana-Iba, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Tomatoes",
@@ -294,7 +294,7 @@
       "neighborhood": "Agege",
       "address": "Agege, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -315,7 +315,7 @@
       "neighborhood": "Ogba",
       "address": "Ogba, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Fruits",
         "Vegetables",
@@ -336,7 +336,7 @@
       "neighborhood": "Ipaja",
       "address": "Ipaja, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Yam",
         "Cassava",
@@ -357,7 +357,7 @@
       "neighborhood": "Bariga",
       "address": "Bariga, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Fruits",
@@ -377,7 +377,7 @@
       "neighborhood": "Somolu",
       "address": "Somolu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -398,7 +398,7 @@
       "neighborhood": "Surulere",
       "address": "Surulere, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Fruits",
@@ -419,7 +419,7 @@
       "neighborhood": "Mushin",
       "address": "Mushin, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -440,7 +440,7 @@
       "neighborhood": "Oshodi",
       "address": "Oshodi, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -461,7 +461,7 @@
       "neighborhood": "Ikorodu",
       "address": "Ikorodu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Yam",
         "Cassava",
@@ -482,7 +482,7 @@
       "neighborhood": "Badagry",
       "address": "Badagry, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Cassava",
         "Yam",
@@ -503,7 +503,7 @@
       "neighborhood": "Ikorodu",
       "address": "Ikorodu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Plantain",
         "Cassava",
@@ -523,7 +523,7 @@
       "neighborhood": "Epe",
       "address": "Epe, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Yam",
         "Cassava",
@@ -543,7 +543,7 @@
       "neighborhood": "Ikorodu",
       "address": "Ikorodu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Tomatoes",
@@ -564,7 +564,7 @@
       "neighborhood": "Lagos Island",
       "address": "Lagos Island, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Fruits",
         "Vegetables",
@@ -585,7 +585,7 @@
       "neighborhood": "Lekki",
       "address": "Lekki, Lagos",
       "days": ["Sat", "Sun"],
-      "hours": "Morning – Afternoon",
+      "hours": "8:00 AM – 2:00 PM",
       "products": [
         "Fresh Fruits",
         "Vegetables",
@@ -606,7 +606,7 @@
       "neighborhood": "Ketu",
       "address": "Ketu, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Early morning – Evening",
+      "hours": "6:00 AM – 6:00 PM",
       "products": [
         "Tomatoes",
         "Peppers",
@@ -627,7 +627,7 @@
       "neighborhood": "Oke-Aro",
       "address": "Oke-Aro, Lagos",
       "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      "hours": "Morning – Evening",
+      "hours": "7:00 AM – 6:00 PM",
       "products": [
         "Vegetables",
         "Tomatoes",

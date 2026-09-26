@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Icon } from "../../icons";
 import BookmarkButton from "../BookmarkButton/BookmarkButton";
+import { productIconMap } from "../../data/marketData.js";
+import { productImages } from "../../data/productImages.js";
 import { isMarketOpen } from "../../utils/marketUtils";
 import "./MarketCard.css";
 
@@ -34,11 +36,19 @@ export default function MarketCard({ market, distance }) {
       </div>
 
       <div className="market-products">
-        {market.products.slice(0, 3).map((p) => (
-          <span key={p} className="product-pill">
-            {p}
-          </span>
-        ))}
+        {market.products.slice(0, 3).map((p) => {
+          const hasImage = Boolean(productImages[p]);
+          return (
+            <span key={p} className="product-pill">
+              {hasImage ? (
+                <img src={productImages[p]} alt={p} className="product-pill-img" loading="lazy" />
+              ) : (
+                <Icon name={productIconMap[p]} size={14} />
+              )}
+              {p}
+            </span>
+          );
+        })}
         {market.products.length > 3 && (
           <span className="product-pill more">
             +{market.products.length - 3}

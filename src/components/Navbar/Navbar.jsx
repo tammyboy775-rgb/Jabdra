@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "../../icons";
 import { useBookmarks } from "../../context/BookmarksContext";
+import { useAuth } from "../../context/AuthContext";
 import "./Navbar.css";
 import { IoBookmarksSharp } from "react-icons/io5";
 
@@ -16,6 +17,7 @@ const LINKS = [
 
 export default function Navbar() {
   const { bookmarks } = useBookmarks();
+  const { user, isAuthenticated, logout } = useAuth();
   const [open, setOpen] = useState(false);
 
   return (
@@ -48,14 +50,28 @@ export default function Navbar() {
             <Icon name="search" size={16} /> <span>Search markets</span>
           </NavLink>
           <NavLink title="bookmark" to="/bookmarks" className="btn btn-outline nav-cta">
-           <IoBookmarksSharp /> {bookmarks.length > 0 && ` (${bookmarks.length})`}
+            <IoBookmarksSharp /> {bookmarks.length > 0 && ` (${bookmarks.length})`}
           </NavLink>
-          <button type="button" className="nav-auth-button" title="Demo login button">
-            Log in
-          </button>
-          <button type="button" className="nav-auth-button nav-auth-signup" title="Demo signup button">
-            Sign up
-          </button>
+          {isAuthenticated ? (
+            <>
+              <span className="nav-user" title={user.username}>
+                <Icon name="user" size={18} />
+                <span className="nav-user-name">{user.username}</span>
+              </span>
+              <button type="button" className="nav-auth-button nav-auth-logout" title="Log out" onClick={logout}>
+                Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <NavLink to="/login" className="nav-auth-button" title="Log in">
+                Log in
+              </NavLink>
+              <NavLink to="/register" className="nav-auth-button nav-auth-signup" title="Sign up">
+                Sign up
+              </NavLink>
+            </>
+          )}
           <button
             type="button"
             className="menu-toggle"
@@ -82,6 +98,29 @@ export default function Navbar() {
             {link.label}
           </NavLink>
         ))}
+        <div className="nav-drawer-auth-row">
+          {isAuthenticated ? (
+            <button
+              type="button"
+              className="nav-drawer-auth"
+              onClick={() => {
+                logout();
+                setOpen(false);
+              }}
+            >
+              Log out
+            </button>
+          ) : (
+            <>
+              <NavLink to="/login" className="nav-drawer-auth" onClick={() => setOpen(false)}>
+                Log in
+              </NavLink>
+              <NavLink to="/register" className="nav-drawer-auth" onClick={() => setOpen(false)}>
+                Sign up
+              </NavLink>
+            </>
+          )}
+        </div>
       </nav>
     </header>
   );

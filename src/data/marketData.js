@@ -880,6 +880,23 @@ export const allProductTypes = [
   'Prepared food',
 ]
 
+export const productIconMap = {
+  Vegetables: 'vegetables',
+  Fruit: 'fruit',
+  Seafood: 'seafood',
+  Meat: 'meat',
+  Dairy: 'dairy',
+  Cheese: 'cheese',
+  Eggs: 'eggs',
+  Bread: 'bread',
+  'Baked goods': 'baked-goods',
+  Honey: 'honey',
+  Preserves: 'preserves',
+  Herbs: 'herbs',
+  Flowers: 'flowers',
+  'Prepared food': 'prepared-food',
+}
+
 // months are 0-indexed (0 = Jan) start/end inclusive; wraps if end < start
 export const produceGuide = [
   { name: 'Asparagus', season: [2, 5], tip: 'Look for tight, closed tips and firm stalks.' },
