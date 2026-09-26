@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Icon } from "../../icons";
 import { useBookmarks } from "../../context/BookmarksContext";
 import "./Navbar.css";
+import { IoBookmarksSharp } from "react-icons/io5";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
@@ -46,8 +47,8 @@ export default function Navbar() {
           <NavLink to="/directory" className="btn btn-primary nav-cta">
             <Icon name="search" size={16} /> <span>Search markets</span>
           </NavLink>
-          <NavLink to="/bookmarks" className="btn btn-outline nav-cta">
-            Bookmarks{bookmarks.length > 0 && ` (${bookmarks.length})`}
+          <NavLink title="bookmark" to="/bookmarks" className="btn btn-outline nav-cta">
+           <IoBookmarksSharp /> {bookmarks.length > 0 && ` (${bookmarks.length})`}
           </NavLink>
           <button type="button" className="nav-auth-button" title="Demo login button">
             Log in
