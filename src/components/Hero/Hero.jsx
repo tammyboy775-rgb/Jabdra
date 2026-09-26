@@ -79,7 +79,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-content">
-        <span className="hero-kicker reveal" style={{ '--d': '0s' }}>Millhaven &amp; nearby</span>
+        <span className="hero-kicker reveal" style={{ '--d': '0s' }}>Lagos, Nigeria</span>
         <h1 className="reveal" style={{ '--d': '0.08s' }}>
           Find a farmers' market near you — and know what's ripe when you get there.
         </h1>

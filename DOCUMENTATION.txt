@@ -1,0 +1,938 @@
+================================================================================
+                        FRESHFIND - PROJECT DOCUMENTATION
+                  Prepared in accordance with the SRS v1.0
+                 "Fresh All Along" - Web Innovation Unleashed
+================================================================================
+
+Project Name : FreshFind
+Theme        : eGreen Basket
+Category     : Web Innovation Unleashed
+Document     : Project Documentation (aligned to FreshFind SRS Version 1.0)
+Date         : 26 September 2026
+
+IMPORTANT NOTE ON CONTENT
+  In accordance with the SRS (Project Deliverables): "Documentation should not
+  contain any source code." This document describes the project in prose,
+  tables, and diagrams only. File names and data-field names are listed for
+  reference; no source code is reproduced.
+
+--------------------------------------------------------------------------------
+                            TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+
+  1.  Introduction
+      1.1 Purpose of this Document
+      1.2 Background and Necessity for the Website
+      1.3 Proposed Solution
+      1.4 Scope of the Project
+      1.5 Intended Audience
+  2.  System Overview
+      2.1 Architecture
+      2.2 Site Map
+      2.3 Technology Stack
+  3.  Feature Documentation (Functional Requirements)
+      3.1  Home Page
+      3.2  Market Directory (Find a Market)
+      3.3  Market Detail Page
+      3.4  Produce Guide
+      3.5  Seasonal Recommendations
+      3.6  AI Chatbot
+      3.7  Content Bookmarking System
+      3.8  Contact Us
+      3.9  About Us
+      3.10 Login / Sign Up
+      3.11 User Interface Features
+  4.  Data Architecture and Data Flow
+  5.  Non-Functional Requirements Compliance
+  6.  Constraints Compliance (per SRS)
+  7.  SRS Requirements Compliance Matrix
+  8.  Project Installation Instructions (Mandatory)
+  9.  Testing and Test Data
+  10. Assumptions
+  11. Known Issues and Limitations
+  12. Project Deliverables Checklist
+
+~~~ End of Document (see final page) ~~~
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 PURPOSE OF THIS DOCUMENT
+  This document defines the functional, non-functional, and technical aspects of
+  the FreshFind Website as built, and records its compliance with the FreshFind
+  Software Requirements Specification (SRS) Version 1.0. It describes the
+  objectives and features of the Website, its pages and the functions it
+  performs, the data it uses, the constraints under which it operates,
+  installation instructions, test data, and assumptions.
+
+1.2 BACKGROUND AND NECESSITY FOR THE WEBSITE
+  Farmers markets connect communities with the growers who put fresh, seasonal
+  food on their tables. However, information on market locations and timings is
+  scattered across flyers, community boards, social media, and word of mouth,
+  with no single reliable source for residents in a community or neighbourhood.
+  This makes it difficult for residents to plan visits around a market's actual
+  operating day and hours, or to know in advance what produce is likely to be
+  available that week. There is a clear requirement for a simple, accessible,
+  browser-based tool that consolidates this information into one place, helping
+  residents discover nearby markets and make the most of seasonal, local
+  produce.
+
+1.3 PROPOSED SOLUTION
+  FreshFind is a Single Page Application (Website) that helps residents discover
+  nearby farmers markets. It displays market locations, operating days and
+  hours, and the types of produce typically available at each market. It
+  includes an AI chatbot that answers frequently asked queries from visitors.
+  The Website is built purely with frontend technologies (HTML, CSS,
+  JavaScript/React) with no backend server. All market and produce data is
+  presented from pre-populated JSON/JavaScript data files, and the chatbot runs
+  on pre-scripted, rule-based logic rather than a live external AI service.
+  This architecture keeps the platform lightweight, fast, and easy to deploy
+  while providing a responsive experience across desktops, tablets, and mobile
+  devices.
+
+1.4 SCOPE OF THE PROJECT
+  FreshFind is a responsive, browser-based Website that helps residents discover
+  farmers' markets near them and plan visits around what is likely to be in
+  season. It includes:
+    - A searchable and filterable market directory.
+    - Individual market detail pages showing location, operating days/hours,
+      and typical products.
+    - A general produce guide and a seasonal recommendations section.
+    - An AI (scripted) chatbot to help visitors find answers to common queries.
+    - A content bookmarking system (favourites, notes, export, sharing).
+    - Responsive compatibility across desktops, tablets, and mobile devices.
+  The platform is suitable for residents planning market visits and for
+  community organizations promoting local farmers.
+
+1.5 INTENDED AUDIENCE
+  Stakeholders (technical and non-technical people associated with the project)
+  and the developers of this Website. It serves as a reference for both
+  stakeholders and developers involved in designing, building, and maintaining
+  the Website.
+
+
+================================================================================
+2. SYSTEM OVERVIEW
+================================================================================
+
+2.1 ARCHITECTURE
+  FreshFind is a client-side Single Page Application (SPA). There is no backend
+  server and no database. Data is read from static files bundled at build time;
+  nothing is ever written to a server. User choices that must survive a page
+  reload (bookmarks, notes, session) are kept in the browser's localStorage
+  only, which satisfies the SRS constraint that the Website must not store
+  information on a server.
+
+  High-level architecture:
+
+  +-----------------------------------------------------------------------+
+  |                        BROWSER (Client)                               |
+  |                                                                       |
+  |  +------------------- React SPA (Vite build) -----------------------+ |
+  |  |  Pages: Home, Directory, Market Detail, Produce Guide, Seasonal, | |
+  |  |         Bookmarks, Contact, About, Login, Register               | |
+  |  |  Shared: Navbar, Footer, Chatbot, Breadcrumbs, Search/Filter     | |
+  |  |  State:  MarketsContext, BookmarksContext, AuthContext           | |
+  |  +-------------------------------------------------------------------+ |
+  |           |  read-only            |  read               |             |
+  |           v                       v                     v             |
+  |  marketData.json / marketData.js   messages.json    localStorage       |
+  |  (markets, produce, seasons)       (chatbot Q&A)    (bookmarks,        |
+  |                                                      notes, session)   |
+  |           |                                                     ^      |
+  |           v                                                     |      |
+  |  Geolocation API + real-time clock -> "Open now" / distance      |      |
+  |  Google Maps embed (market detail page)                          |      |
+  +-----------------------------------------------------------------------+
+           |
+           v
+   Optional external view-only links: Google Maps tiles, social share URLs
+   (WhatsApp, X, Facebook). Static hosting: any web server / CDN.
+
+  Data flow for a typical request:
+    1. User opens the Home page (or any route).
+    2. MarketsContext loads the bundled market dataset (marketData.json).
+    3. A page filters/sorts the data in memory (search, day, product, open-now,
+       proximity via Geolocation API) and renders the result.
+    4. Selecting a market routes to the Market Detail page (SPA navigation,
+       no full page reload; ScrollToTop resets the viewport).
+    5. Chatbot input is matched against messages.json (rule-based) and the
+       answer is displayed; no network call to an AI service occurs.
+
+2.2 SITE MAP
+  SRS: "Landing Page - This Page includes the following sections: Core
+  sections: Find a Market, Market Directory, Produce Guide, Chatbot, Contact
+  Us, About Us. Upon selecting a market from the directory, the respective
+  market detail page should be displayed... features such as Search/Find a
+  Market, Bookmarks, and the chatbot are cross-page."
+
+  Sitemap (routes as implemented):
+
+                          +----------------------+
+                          |    HOME  (/)         |
+                          | Logo, heading, intro |
+                          | "Find a Market Near  |
+                          |  You" search prompt  |
+                          | Featured/rotating    |
+                          | market highlights    |
+                          +----------+-----------+
+                                     |
+        +-------------+--------------+---------------+-------------+
+        |             |              |               |             |
+        v             v              v               v             v
+  +-----------+ +-----------+ +--------------+ +-----------+ +------------+
+  | MARKET    | | PRODUCE   | | SEASONAL     | | CONTACT   | | ABOUT US   |
+  | DIRECTORY | | GUIDE     | | RECOMMENDS   | | US        | | (static    |
+  | (/direct- | | (/produce-| | (/seasonal)  | | (/contact)| |  team &    |
+  |  ory)     | |  guide)   | |              | |           | |  platform  |
+  +-----+-----+ +-----------+ +--------------+ +-----------+ +------------+
+        |
+        v
+  +----------------+
+  | MARKET DETAIL  |
+  | (/market/:id)  |
+  | Location+map,  |
+  | schedule,      |
+  | produce list   |
+  +----------------+
+
+  Also: /bookmarks (bookmark manager), /login, /register (auth pages).
+
+  Cross-page features (available from every page):
+    - Search / Find a Market (Navbar "Search markets" button + Hero search)
+    - Bookmarks (Navbar badge -> /bookmarks, live count)
+    - Chatbot (floating launcher rendered on every page)
+    - Login / Signup (Navbar buttons -> /login, /register)
+    - Breadcrumb navigation (Directory, About, and detail pages)
+    - Footer navigation (Explore / Support columns)
+
+2.3 TECHNOLOGY STACK
+  As built (all frontend, consistent with the SRS interface requirements):
+
+  Layer             | Technology
+  ------------------+--------------------------------------------------
+  UI framework      | React 19 (function components + hooks, Context API)
+  Build tool        | Vite 8 (npm scripts: dev, build, preview, lint)
+  Routing           | react-router-dom 7 (client-side SPA routing)
+  Icons             | react-icons 5 + inline SVG icon set
+  Linting           | Oxlint (script: npm run lint)
+  Language          | JavaScript (JSX), HTML5, CSS3
+  Data store        | JSON / JS text files (marketData.json,
+                    | marketData.js, messages.json) - per SRS "Data Store"
+  Persistence       | Browser localStorage (bookmarks, notes, session)
+  Browser APIs      | Geolocation API, Intl date/time formatting,
+                    | Clipboard API, matchMedia (reduced motion)
+  Maps              | Google Maps embed iframe (market detail page)
+  Chatbot           | Rule-based scripted logic (no live AI service),
+                    | per SRS constraint
+  Deployment        | Static hosting (dist/ from the production build)
+
+  SRS software recommendations (VS Code or any HTML5 editor, ReactJS, JSON
+  data store, optional chatbot platforms such as Tawk.to/Tidio) are
+  satisfied: the project is built with ReactJS and JSON data files; the
+  chatbot is pre-scripted in-app logic, which the SRS explicitly allows
+  ("the chatbot would run on pre-scripted logic rather than a live external
+  AI service").
+
+
+================================================================================
+3. FEATURE DOCUMENTATION (FUNCTIONAL REQUIREMENTS)
+================================================================================
+
+  The portal is a responsive Website with a set of pages and menus that
+  represent the choice of activities to be performed. Pages, menus, and other
+  visual elements are designed in a visually appealing manner with attractive
+  fonts, colors, and animations, laid out responsively. Information is
+  retrieved from pre-populated JSON/JS data files and displayed through React
+  components, modules, and the Context API (the SRS hint: "Use ... ReactJS
+  components, modules, and other features to implement this").
+
+3.1 HOME PAGE (route: /)
+  Source: src/pages/Home/Home.jsx, src/components/Hero/Hero.jsx
+  SRS items covered:
+    - Display elements: platform logo (Navbar brand), heading, and
+      introductory text (Hero headline and sub-copy).
+    - Quick Find: a prominent "Find a Market Near You" search prompt in the
+      Hero that accepts a market/neighborhood query and deep-links into the
+      directory (/directory?q=...). Quick-link chips jump to "Open Saturdays"
+      (/directory?day=Sat), the Produce Guide, and "What's in season".
+    - Highlights: a featured showcase of markets ("Featured this week" - first
+      three market cards) and a rotating hero image carousel (5 slides,
+      auto-advances every 6 seconds, pauses when the tab is hidden, honors
+      prefers-reduced-motion, manual dot controls).
+    - Seasonal picks panel showing what is in season right now (computed from
+      the current date).
+    - "How it works" three-step explainer (search nearby, check schedule,
+      shop in season).
+    - Chatbot Launcher: the floating chatbot icon is available on the home
+      page and all subsequent pages (rendered globally by the router).
+  Dynamic behavior: selecting a market or applying a filter navigates to the
+  directory/detail pages where results are displayed dynamically.
+
+3.2 MARKET DIRECTORY - FIND A MARKET (route: /directory)
+  Source: src/pages/Directory/Directory.jsx, src/components/SearchFilter/,
+          src/components/MarketCard/, src/components/LiveMarketStatus/
+  SRS items covered:
+    - Functionality: displays a catalog of farmers markets loaded from the
+      pre-populated market data file (marketData.json via MarketsContext -
+      31 markets across 22 Lagos neighborhoods).
+    - Each market card includes: market name, area/neighborhood, operating
+      days and hours, a short description, and product thumbnails (product
+      images with icon fallback), plus vendor count and an "Open now" badge
+      computed from the live clock.
+    - Filtering: by area/neighborhood (free-text search over name and
+      neighborhood), day of the week (day chips Mon-Sun), produce type
+      available (category dropdown), and an "Open now" status toggle.
+    - Sorting: alphabetically (A-Z), by proximity (nearest first, using
+      browser Geolocation + haversine distance; gracefully falls back to
+      alphabetical with a visible notice when location is unavailable), and
+      by next open day.
+    - Result count, contextual sort/status notes, empty-state messaging.
+    - URL parameter support (?q=, ?day=) so hero search/quick links land on
+      pre-filtered results.
+    - "Use my location" retry button when geolocation is denied/unavailable.
+    - Breadcrumb navigation; LiveMarketStatus bar (open-now count, real-time
+      clock, simulated visitor counter, geolocation status).
+
+3.3 MARKET DETAIL PAGE (route: /market/:id)
+  Source: src/pages/MarketDetail/MarketDetail.jsx
+  SRS items covered:
+    - Location details: full address, area/neighborhood badge, and an
+      embedded Google Map showing the market location (iframe embed built
+      from the market's coordinates).
+    - Schedule: operating days and hours clearly displayed in the "Visit
+      info" panel (open days list + hours range); the card grid also shows
+      days/hours at a glance.
+    - Products available: a list/grid of items typically available at this
+      market with images/icons ("Typical products" tiles).
+    - Additional: "About this market" description, distance from the user
+      (when geolocation is granted), bookmark toggle, back-link to the
+      directory, loading/error/not-found states.
+
+3.4 PRODUCE GUIDE (route: /produce-guide)
+  Source: src/pages/ProduceGuide/ProduceGuide.jsx, data in marketData.js
+  SRS items covered:
+    - Functionality: a browsable catalogue of produce types, each with a
+      description/usage tip, the months it is typically in season (12-month
+      season bar), and search.
+    - Filtering: text search over produce names; the list is constrained to
+      produce actually carried by markets in the directory (data linkage
+      between produce items and markets). Product category browsing is also
+      available in the directory's "Sells" filter (fruits, vegetables, herbs,
+      dairy, etc. - 14 categories).
+    - Data source: loaded from pre-populated data (produceGuide entries with
+      season windows) linking produce to seasons; market-level linkage comes
+      from each market's product list.
+    - Bookmarks: each produce entry has a bookmark button.
+
+3.5 SEASONAL RECOMMENDATIONS (route: /seasonal)
+  Source: src/pages/Seasonal/Seasonal.jsx, src/components/SeasonalPicks/
+  SRS: "seasonal recommendations section" (Scope of Project).
+    - Four season cards (spring/summer/autumn/winter) with blurbs and picks.
+    - The current season (derived from the device date) is highlighted with a
+      "Happening now" tag; a CTA links to the directory.
+    - Home page shows the "In season right now" picks panel.
+
+
+3.6 AI CHATBOT (floating widget, available on every page)
+  Source: src/components/Chatbot/Chatbot.jsx, data in messages.json
+  SRS items covered:
+    - Functionality: a floating chatbot widget available across the site that
+      helps visitors find answers to common queries. A FAB (floating action
+      button) opens/closes the chat panel on any page.
+    - Data source: responses are generated from a static, pre-scripted
+      dataset - 63 Q&A entries with 367 trigger phrases in messages.json.
+      Matching normalizes the user's text (lowercase, punctuation stripped)
+      and looks for a matching known question. NO live external AI service or
+      backend is used (per SRS constraint).
+    - Interaction: visitors can type a question or select from suggested
+      quick-reply prompts (five quick messages, collapsible); the chatbot
+      responds with text answers, a fallback message for unknown questions,
+      and can link to relevant market pages (nearby-market results render as
+      clickable cards that open the market detail route).
+    - Special capability: "nearest market" intents trigger browser
+      geolocation, compute great-circle distances to all markets, and return
+      the three closest markets with distances; permission-denied and
+      unsupported-browser cases return friendly messages. A loading spinner
+      is shown while locating.
+
+3.7 CONTENT BOOKMARKING SYSTEM (route: /bookmarks)
+  Source: src/context/BookmarksContext.jsx, src/components/BookmarkButton/,
+          src/pages/Bookmarks/Bookmarks.jsx
+  SRS: "For all content types, the following should be available:"
+    - Favorite markets and produce guide entries: bookmark toggle buttons on
+      market cards, the market detail page, and every produce guide row
+      (two bookmark kinds: market, produce). The Navbar shows a bookmark
+      icon with a live count.
+    - Personal notes attached to bookmarked content: a note textarea on each
+      bookmark card (stored client-side in localStorage; not sent anywhere).
+    - Export bookmarks as a formatted list: "Copy list" (clipboard) and
+      "Print list" (browser print) produce a structured plain-text export
+      grouped by MARKETS and PRODUCE including notes; a preview box shows
+      the formatted output.
+    - Share recommendations via social links: share buttons for WhatsApp,
+      X (Twitter), and Facebook that pre-fill the pick list and site URL.
+    - Management: remove bookmark, empty state with CTA, direct links back to
+      each bookmarked item.
+  Note: SRS says notes are "session-only"; implementation persists them in
+  localStorage (client-only), which is a superset of the requirement and
+  still stores nothing on a server.
+
+
+3.8 CONTACT US (route: /contact)
+  Source: src/pages/Contact/Contact.jsx
+  SRS: "This page includes static contact information, with a map showing
+  live location. (Hint: Use Google Maps and Geolocation feature)"
+    - Static contact information: email, phone, location ("Based in Nigeria")
+      in a contact-details panel.
+    - Contact form with client-side validation (name, valid email, message;
+      optional subject and reason dropdown) and a success confirmation.
+      The form does not transmit data (no backend), consistent with SRS
+      constraints.
+    - FAQ section ("Before you write") with expandable questions.
+    - Google Maps / geolocation: the geolocation feature is used
+      site-wide (directory proximity sorting, live status, chatbot nearby
+      markets) and an embedded Google Map is provided on market detail pages;
+      see Known Issue #1 regarding the Contact page map.
+
+3.9 ABOUT US (route: /about)
+  Source: src/pages/About/About.jsx
+  SRS: "This page includes static information about the team and the
+  platform."
+    - Intro section, "Our platform" story section, and a three-member team
+      grid (name, role, description) - static content.
+    - Breadcrumb navigation included.
+
+3.10 LOGIN / SIGN UP (routes: /login, /register)
+  Source: src/components/AuthForm/AuthForm.jsx, src/context/AuthContext.jsx
+  SRS: "Dummy Login/Signup: Non-functional login/signup buttons included for
+  design continuity."
+    - The SRS minimum is non-functional buttons for design continuity. This
+      implementation provides the same look/flow plus a lightweight
+      client-side demo auth: registration and login validate input, keep the
+      "account" list and current session in localStorage only, show the
+      username with a Log out action in the Navbar, and guard against
+      duplicate usernames. It is NOT real authentication - no server, no
+      password hashing, no data leaves the browser - so it fully complies
+      with the no-backend constraint while exceeding the dummy requirement.
+
+3.11 USER INTERFACE FEATURES
+  Source: LiveMarketStatus, Navbar, Breadcrumb, Hero, index.html, CSS files
+  SRS items covered:
+    - Visitor Counter: simulated visitor counter using JavaScript
+      (LiveMarketStatus shows "N visitors today" that drifts over time from
+      a randomized base).
+    - Real-Time Clock: a live clock (updates every second, weekday + time)
+      plus browser geolocation usage to highlight markets open "right now"
+      where applicable (open-now badge on cards, "N open right now" in the
+      status bar, "Open now" filter in the directory).
+    - Hover Effects: hover effects and animated transitions throughout
+      (cards, buttons, links), route fade-in transitions, and hero reveal
+      animations; all motion honors the prefers-reduced-motion setting.
+    - Breadcrumb Navigation: breadcrumbs on the Directory and About pages
+      (Home / current); market detail uses an explicit "Back to all markets"
+      link.
+    - Dummy Login/Signup: see 3.10.
+    - Responsive layout: mobile navigation drawer, fluid grids, and
+      breakpoint-based styling for desktops, tablets, and mobiles.
+    - SEO/accessibility basics: semantic landmarks, aria labels/roles,
+      alt text, meta description, Open Graph and Twitter card tags; Google
+      Lighthouse is the recommended validation tool (see section 9).
+
+
+================================================================================
+4. DATA ARCHITECTURE AND DATA FLOW
+================================================================================
+
+  All data is pre-populated and read-only, exactly as the SRS requires:
+  "Information can be fetched from JSON/TXT files and users can view the same
+  being displayed; however, information cannot be written to the files from
+  within the portal."
+
+4.1 DATA FILES
+  File                    | Purpose
+  ------------------------+-------------------------------------------------
+  src/data/marketData.json| Primary market catalog loaded by MarketsContext
+                          | and the chatbot: 31 markets, 22 neighborhoods.
+                          | Fields per market: id, name, neighborhood,
+                          | address, days[] (Mon..Sun), hours (e.g.
+                          | "6:00 AM - 6:00 PM"), products[], coordinates
+                          | {lat, lon} (used for map embeds and distance).
+  ------------------------+-------------------------------------------------
+  src/data/marketData.js  | Reference datasets: allDays, allProductTypes
+                          | (14 categories), productIconMap, produceGuide
+                          | (name, season month-window, tip), seasonalTips
+                          | (4 seasons with label/blurb/picks), plus a demo
+                          | Millhaven dataset and season helper.
+  ------------------------+-------------------------------------------------
+  src/data/messages.json   | Chatbot knowledge base: 63 entries, each with a
+                          | list of trigger questions and one answer
+                          | (367 trigger phrases total).
+  ------------------------+-------------------------------------------------
+  src/data/productImages.js| Maps product names to bundled image assets
+                          | (src/assets/images/products/*).
+  ------------------------+-------------------------------------------------
+  localStorage keys        | freshfind-bookmarks (bookmarks+notes),
+                          | freshfind-users / freshfind-user (demo session),
+                          | freshfind-location (5-minute geolocation cache).
+  ------------------------+-------------------------------------------------
+
+4.2 DATA FLOW DIAGRAM (logical, level 1)
+
+      [Resident/Visitor]
+            |
+            | 1. request page / search / filter
+            v
+   +------------------+     2. read (bundled)      +-------------------+
+   |  FreshFind SPA   | -------------------------> | marketData.json / |
+   |  (pages, router) | <------------------------- | marketData.js     |
+   +------------------+     3. markets, produce,   +-------------------+
+            |                 seasons
+            | 4. filter/sort in memory
+            |    (day, product, query,
+            |     open-now, proximity)
+            |        ^
+            |        | 5. browser Geolocation + clock
+            v
+   +------------------+     6. read (bundled)      +-------------------+
+   | Chatbot widget   | -------------------------> | messages.json     |
+   +------------------+     7. pre-scripted answer +-------------------+
+            |
+            | 8. user saves bookmark/note, demo login
+            v
+   +------------------+
+   | localStorage     |   (client-only; NEVER a server)
+   +------------------+
+
+  External view-only outputs: Google Maps embed, social share URLs.
+  No data is written back to any file or server (SRS constraint).
+
+================================================================================
+5. NON-FUNCTIONAL REQUIREMENTS COMPLIANCE
+================================================================================
+
+  SRS requirement | How FreshFind satisfies it
+  ----------------+-----------------------------------------------------------
+  Safe to use     | No downloads of any kind; no external scripts beyond the
+                  | embedded map tiles; no file writes; plain static assets.
+  Accessible      | Semantic HTML landmarks, aria labels/roles, alt text,
+                  | visible focus, keyboard-operable controls (nav, chatbot,
+                  | filters, forms), sufficient color contrast styling,
+                  | prefers-reduced-motion support. Validate with Google
+                  | Lighthouse (see section 9).
+  User-friendly   | Clear layout, logical top navigation, breadcrumbs,
+                  | quick search from the Hero, chips/dropdowns for filters,
+                  | empty/loading/error states with helpful copy.
+  Operability      | Reliable pure-frontend logic; graceful fallbacks when
+                  | geolocation is denied or data fails to load.
+  Performance      | Vite production build is a single small bundle
+                  | (~381 KB JS / ~118 KB gzip, ~43 KB CSS, images lazy-
+                  | loaded); SPA navigation without full reloads; smooth
+                  | page transition animations. Verified: production build
+                  | completes successfully (26 Sep 2026).
+  Capacity         | Static assets scale to any number of users via CDN or
+                  | any web server; no per-user server state.
+  Availability     | 24/7 static hosting with minimal downtime (depends only
+                  | on the chosen static host, per SRS architecture).
+  Compatibility    | Built for modern evergreen browsers (Chrome, Edge,
+                  | Firefox, Safari); responsive from mobile to desktop;
+                  | uses widely supported web APIs with feature detection.
+
+
+================================================================================
+6. CONSTRAINTS COMPLIANCE (per SRS)
+================================================================================
+
+  SRS Constraint | Compliance in the built project
+  ---------------+------------------------------------------------------------
+  Frontend only: | Built entirely with HTML5, CSS3, and JavaScript (React)
+  no backend,    | via Vite. There is no server code, no API routes, no
+  data logic     | database. Data logic is loaded from JSON/JS files and
+  loaded from    | executed in the browser. All interactions (search,
+  JSON files     | filter, sort, chatbot, bookmarks) run client-side.
+  ---------------+------------------------------------------------------------
+  No server-side | The Website never posts data to a server. Bookmarks,
+  storage        | notes, the demo session, and the geolocation cache live
+                | in browser localStorage. Contact form submissions are
+                | validated and confirmed locally but never transmitted.
+  ---------------+------------------------------------------------------------
+  Read-only      | Market/produce content is fetched from bundled JSON/TXT
+  information    | files and displayed; users can view it. There is no
+                | mechanism to write back into those files from the portal.
+  ---------------+------------------------------------------------------------
+  Chatbot runs   | The chatbot matches questions against a static,
+  on static,     | pre-scripted dataset (messages.json) with rule-based
+  pre-scripted   | normalization/keyword logic in the browser. It does NOT
+  logic; no live | connect to any live external AI service or backend.
+  AI service     | (Geolocation-based "nearest market" answers are computed
+                | locally from the bundled dataset.)
+  ---------------+------------------------------------------------------------
+  Responsive,    | Responsive layouts for desktops, tablets, and phones;
+  cross-device   | responsive CSS breakpoints and a mobile nav drawer.
+  ---------------+------------------------------------------------------------
+  Deliverable    | Documentation contains NO source code (this document
+  constraint: no | complies); installation instructions are mandatory and
+  source code in | are provided in section 8.
+  documentation  |
+
+
+================================================================================
+7. SRS REQUIREMENTS COMPLIANCE MATRIX
+================================================================================
+
+  Legend: [DONE] implemented as specified | [DONE+] implemented beyond the
+  minimum | [PARTIAL] implemented with a noted gap (see section 11)
+
+  Functional Requirement (SRS)                          Status
+  -----------------------------------------------------  ------
+  SPA, responsive pages/menus, visual design             [DONE]
+  Home: logo/heading/intro text                          [DONE]
+  Home: "Find a Market Near You" search/filter prompt    [DONE]
+  Home: featured/rotating highlights + seasonal picks    [DONE]
+  Home: floating chatbot launcher (all pages)            [DONE]
+  Market directory loaded from JSON files                [DONE]
+  Market card: name, area, days/hours, description, img  [DONE]
+  Directory filters: area, day of week, produce type     [DONE]
+  Directory sorting: alphabetical, proximity, next open  [DONE]
+  Market detail: address + embedded Google map           [DONE]
+  Market detail: schedule clearly displayed              [DONE]
+  Market detail: typical products list with images       [DONE]
+  Produce guide catalogue: description, season, markets  [DONE]
+  Produce guide: category filtering                      [PARTIAL]
+  Produce data linked to markets and seasons (JSON)      [DONE]
+  Chatbot: floating widget across the site               [DONE]
+  Chatbot: static pre-scripted dataset (no live AI)      [DONE]
+  Chatbot: typed questions + quick replies + page links  [DONE]
+  Bookmarks: favorite markets and produce entries        [DONE]
+  Bookmarks: personal notes (client-side)                [DONE+]
+  Bookmarks: export as formatted list                    [DONE]
+  Bookmarks: share via social links                      [DONE]
+  Contact Us: static contact information                 [DONE]
+  Contact Us: map showing live location                  [PARTIAL]
+  About Us: static team/platform information             [DONE]
+  UI: simulated visitor counter                          [DONE]
+  UI: real-time clock + geolocation "open now"           [DONE]
+  UI: hover effects / animated transitions               [DONE]
+  UI: breadcrumb navigation                              [DONE]
+  UI: login/signup buttons (design continuity)           [DONE+]
+  Responsive across desktop/tablet/mobile                [DONE]
+
+
+  Non-Functional Requirement (SRS)                       Status
+  -----------------------------------------------------  ------
+  Safe to use                                            [DONE]
+  Accessible                                             [DONE]
+  User-friendly                                          [DONE]
+  Operability                                            [DONE]
+  Performance (fast load, smooth redirection)            [DONE]
+  Capacity (large number of users)                       [DONE]
+  Availability (24/7, minimal downtime)                  [DONE]
+  Compatibility with latest browsers                     [DONE]
+
+  Constraint (SRS)                                       Status
+  -----------------------------------------------------  ------
+  HTML/CSS/JS frontend only, no backend                  [DONE]
+  Data from JSON/TXT files, read-only                    [DONE]
+  No server-side storage                                 [DONE]
+  Chatbot: static pre-scripted, no live AI/backend       [DONE]
+
+  SRS hint: "Use ... ReactJS components, modules, and
+  other features to implement this"                      [DONE]
+  (Implemented with React components, modules, hooks,
+   filters via useMemo, and the Context API for services.)
+
+================================================================================
+8. PROJECT INSTALLATION INSTRUCTIONS (MANDATORY)
+================================================================================
+
+  These instructions are mandatory per the SRS deliverables list.
+
+8.1 PREREQUISITES
+    - Node.js 18.x or newer (LTS recommended) with npm.
+      Check:   node --version  /  npm --version
+    - A modern browser (Chrome, Edge, Firefox, or Safari).
+    - (Optional) Git, to clone the repository.
+    - (Optional) Visual Studio Code as the editor.
+
+8.2 INSTALLATION (development)
+    1. Obtain the source code (unzip the submitted archive, or clone the
+       repository).
+    2. Open a terminal in the project root folder (the folder containing
+       package.json).
+    3. Install dependencies:
+          npm install
+    4. Start the development server:
+          npm run dev
+    5. Open the printed local URL (default: http://localhost:5173) in a
+       browser. The app is fully client-side; no other services are needed.
+
+8.3 PRODUCTION BUILD
+    1. Build the optimized static site:
+          npm run build
+       Output is written to the dist/ folder.
+    2. Preview the production build locally:
+          npm run preview
+       (default: http://localhost:4173)
+
+8.4 LINT (code quality check)
+          npm run lint
+
+8.5 DEPLOYMENT (optional live URL)
+    Upload the contents of dist/ to any static host (GitHub Pages, Netlify,
+    Vercel, Firebase Hosting, or any web server). Because the app uses
+    client-side routing, configure the host to serve index.html for unknown
+    paths (SPA fallback / "rewrite all to index.html").
+
+8.6 PROJECT STRUCTURE (top level)
+    freshfind/
+    |-- index.html            Entry HTML (title, SEO/OG meta tags)
+    |-- package.json          Scripts: dev, build, lint, preview
+    |-- vite.config.js        Vite + React plugin configuration
+    |-- public/               Static assets (favicons, icons)
+    |-- src/
+    |   |-- main.jsx          App entry: router + providers
+    |   |-- App.jsx           Root component
+    |   |-- Router/           AppRouter (all routes)
+    |   |-- pages/            Home, Directory, MarketDetail, ProduceGuide,
+    |   |                     Seasonal, Bookmarks, Contact, About, Login,
+    |   |                     Register (each with its CSS file)
+    |   |-- components/       Navbar, Footer, Chatbot, Hero, MarketCard,
+    |   |                     SearchFilter, Breadcrumb, LiveMarketStatus,
+    |   |                     SeasonalPicks, BookmarkButton, AuthForm,
+    |   |                     ScrollToTop
+    |   |-- context/          MarketsContext, BookmarksContext, AuthContext
+    |   |-- hooks/            useGeolocation, useLocalStorage
+    |   |-- utils/            marketUtils (open/sort/distance/season logic)
+    |   |-- data/             marketData.json, marketData.js, messages.json,
+    |   |                     productImages.js
+    |   |-- assets/           hero and product images
+    |   |-- icons.jsx         Inline SVG icon set
+    |   |-- index.css         Global styles / design tokens
+    |-- DOCUMENTATION.txt     This file
+    |-- README.md             Repository readme
+
+
+================================================================================
+9. TESTING AND TEST DATA
+================================================================================
+
+9.1 VALIDATION PERFORMED
+  The following checks were executed against the delivered source on
+  26 September 2026:
+
+  Check                  | Command        | Result
+  -----------------------+----------------+-------------------------------
+  Dependency install     | npm install    | OK (node_modules present)
+  Code quality / lint    | npm run lint   | PASS - 0 errors, 5 warnings
+                         |                | (advisory React hints only:
+                         |                | setState-in-effect x3,
+                         |                | fast-refresh export style x2;
+                         |                | no functional defects)
+  Production build       | npm run build  | PASS - built in ~3 s;
+                         |                | dist/ emitted (index.html,
+                         |                | JS ~381 KB/118 KB gzip,
+                         |                | CSS ~43 KB/8.8 KB gzip)
+
+9.2 TEST DATA USED IN THE PROJECT
+  Dataset            | Size / content
+  -------------------+-------------------------------------------------------
+  Market catalog     | 31 markets across 22 neighborhoods (Lagos areas:
+                     | Agege, Bariga, Epe, Iddo, Ikorodu, Ketu, Lekki,
+                     | Mushin, Oyingbo, Surulere, etc.). Each has id, name,
+                     | neighborhood, address, open days, hours, product
+                     | list, and lat/lon coordinates.
+  Product categories | 14 types (Vegetables, Fruit, Seafood, Meat, Dairy,
+                     | Cheese, Eggs, Bread, Baked goods, Honey, Preserves,
+                     | Herbs, Flowers, Prepared food) + item-level produce
+                     | names (Tomatoes, Peppers, Onions, Yam, Beans, Maize,
+                     | Rice, Banana, Plantain, Okra, Cassava, Garri,
+                     | Groundnuts, Garden Egg, Palm Oil, fish, prawns...).
+  Produce guide      | 14+ entries, each with a season month-window and a
+                     | buying/preparation tip.
+  Seasonal tips      | 4 seasons (spring/summer/autumn/winter) x label,
+                     | blurb, 4 picks each.
+  Chatbot corpus     | 63 Q&A entries, 367 trigger phrases; plus built-in
+                     | nearest-market intent and fallback answer.
+  Images             | 5 hero photos, 22 product photos (lazy-loaded).
+  Geolocation        | Test with browser location granted AND denied to
+                     | exercise proximity sort, distances, and chatbot
+                     | nearby-market flows.
+
+
+9.3 KEY TEST SCENARIOS (manual functional tests)
+  ID   | Area                | Steps / input       | Expected result
+  -----+---------------------+---------------------+---------------------------
+  T-01 | Home load           | Open /              | Hero, search box, featured
+       |                     |                     | markets, seasonal picks,
+       |                     |                     | chatbot FAB visible.
+  T-02 | Quick search        | Type "Mile 12" in   | Routes to /directory with
+       |                     | hero search         | matching results.
+  T-03 | Day filter          | Directory: click    | Only markets open that
+       |                     | "Sat" chip          | day are listed; count set.
+  T-04 | Product filter      | Sells dropdown:     | Only markets carrying that
+       |                     | "Vegetables"        | product are listed.
+  T-05 | Open-now filter     | Status: Open now    | Only currently-open markets
+       |                     | (during open hours) | (badge + status bar agree).
+  T-06 | Sort: alphabetical  | Sort A-Z            | Results in A-Z order.
+  T-07 | Sort: proximity     | Allow location      | Nearest first + distance
+       |                     |                     | labels; notice shown.
+  T-08 | Sort: proximity     | Deny location       | Falls back to A-Z with a
+       |     fallback        |                     | clear warning notice.
+  T-09 | Sort: next open     | Sort "Next open day"| Markets opening soonest
+       |                     |                     | appear first.
+  T-10 | Market detail       | Click a market card | Address, days, hours,
+       |                     |                     | product tiles, Google map,
+       |                     |                     | bookmark button render.
+  T-11 | Deep link / bad id  | Open /market/xyz    | "We couldn't find that
+       |                     |                     | market" + back link.
+  T-12 | Produce search      | Guide: "yam"        | Only matching produce rows
+       |                     |                     | with active season cells.
+  T-13 | Seasonal highlight  | Open /seasonal      | Current season card tagged
+       |                     |                     | "Happening now".
+  T-14 | Chatbot: quick reply| Click a quick       | Scripted answer appended
+       |                     | question            | to the transcript.
+  T-15 | Chatbot: typed FAQ  | Ask about opening   | Matching scripted answer
+       |                     | hours               | from messages.json.
+  T-16 | Chatbot: unknown    | Ask nonsense text   | Friendly fallback answer.
+
+
+  T-17 | Chatbot: nearest    | Ask "nearest market"| 3 closest markets with km
+       |     (allowed)       | + allow location    | links to detail pages.
+  T-18 | Chatbot: nearest    | Ask + deny location | Permission explanation
+       |     (denied)        |                     | message shown.
+  T-19 | Bookmark add        | Bookmark a market   | Button toggles; Navbar
+       |                     | and a produce row   | count increments.
+  T-20 | Bookmark persist    | Reload the page     | Bookmarks and notes remain
+       |                     |                     | (localStorage).
+  T-21 | Notes               | Add note to a       | Note saved, included in
+       |                     | bookmark            | the export text.
+  T-22 | Export              | Copy list / Print   | Formatted list copied or
+       |                     |                     | print dialog opens.
+  T-23 | Share               | Share on WhatsApp/  | New tab opens with pre-
+       |                     | X/Facebook          | filled text + site URL.
+  T-24 | Demo register       | Register a new      | Session created; Navbar
+       |                     | username            | shows username + Log out.
+  T-25 | Duplicate username  | Register same name  | Clear error message.
+  T-26 | Login/logout        | Login, then Log out | Session restored/cleared.
+  T-27 | Contact validation  | Submit empty form   | Field errors shown.
+  T-28 | Contact success     | Valid submission    | Success confirmation;
+       |                     |                     | no network request made.
+  T-29 | Breadcrumbs         | Directory / About   | Home / current path shown.
+  T-30 | Responsive          | Resize to phone     | Drawer menu works; grids
+       |                     |                     | reflow; chatbot usable.
+  T-31 | Keyboard/a11y       | Tab through nav,    | All controls reachable and
+       |                     | filters, chat, forms| labeled; then run Google
+       |                     |                     | Lighthouse (SRS: target
+       |                     |                     | Performance/Accessibility/
+       |                     |                     | SEO validation).
+  T-32 | Real-time elements  | Observe status bar  | Clock ticks each second;
+       |                     | for 10+ seconds     | visitor counter drifts.
+
+================================================================================
+10. ASSUMPTIONS
+================================================================================
+
+  A-01  All market, produce, and chatbot content is demonstration data.
+        Market records cover Lagos neighborhoods; the bundled reference
+        datasets also contain a fictional "Millhaven" example set. Swapping
+        in real data requires only editing the JSON/JS data files - no code
+        changes - which matches the SRS model of pre-populated data files.
+  A-02  Hours are stored as a single daily range (e.g. "6:00 AM - 6:00 PM")
+        applied to every listed open day; markets with different weekend
+        hours would need separate records.
+  A-03  The login/signup feature is a design-continuity demo (client-side
+        only). It is not secure authentication and must not be treated as
+        real user accounts; passwords are stored in plain text in
+        localStorage. The SRS only required dummy buttons.
+  A-04  Bookmarks, notes, and session data persist per browser/device
+        (localStorage). Clearing browser storage removes them. Nothing is
+        synced across devices (there is no backend, per SRS).
+  A-05  The visitor counter is simulated (randomized) exactly as the SRS
+        asks; it is not backed by analytics.
+  A-06  The contact form validates and confirms locally but does not send
+        email; there is no server to receive it (SRS constraint).
+  A-07  Geolocation features (proximity sort, distances, chatbot nearby
+        markets) require user permission and HTTPS/localhost; graceful
+        fallbacks apply otherwise.
+  A-08  Google Maps embeds and social share links are optional, view-only
+        external resources; the site remains usable without them.
+  A-09  "Open now" calculations use the visitor device's local time and the
+        market's stored weekday names/hours.
+  A-10  Browser support targets the latest versions of Chrome, Edge,
+        Firefox, and Safari (SRS: "compatible with the latest browsers").
+
+
+================================================================================
+11. KNOWN ISSUES AND LIMITATIONS
+================================================================================
+
+  These are the [PARTIAL] items from the compliance matrix, plus advisory
+  notes. None of them violate the SRS constraints; each is a candidate for
+  a small enhancement.
+
+  K-01  Contact page map: the SRS hints at a map with live location on the
+        Contact Us page. An embedded Google Map is implemented on every
+        Market Detail page, and geolocation is used across the site, but the
+        Contact page currently shows static contact details without its own
+        map embed. (Requirement: PARTIAL)
+
+  K-02  Produce guide category filter: the SRS suggests filtering the
+        produce guide by product category (fruits, vegetables, herbs, dairy,
+        ...). The guide currently offers text search, while category
+        filtering is available in the Market Directory's "Sells" dropdown.
+        Adding category chips to the guide would close this gap.
+        (Requirement: PARTIAL)
+
+  K-03  Lint warnings: oxlint reports 5 advisory warnings (0 errors) -
+        setState-in-effect patterns in useGeolocation/MarketsContext and
+        fast-refresh export style in the context files. They do not affect
+        functionality.
+
+  K-04  Two market datasets exist: the directory/chatbot load
+        marketData.json (31 Lagos markets - the active dataset), while
+        marketData.js also carries the original demo markets plus the
+        produce/season reference data. Consolidating into one file would
+        reduce confusion.
+
+  K-05  Auth is intentionally demo-grade (see assumption A-03).
+
+  K-06  Hero images are large photos (~1.5-1.8 MB each); converting them to
+        WebP/AVIF and adding responsive sizes would improve Lighthouse
+        performance scores.
+
+================================================================================
+12. PROJECT DELIVERABLES CHECKLIST
+================================================================================
+
+  Deliverable (per SRS "Project Deliverables")        Status / location
+  ---------------------------------------------------  ----------------------
+  Problem Definition                                   Section 1.2 of this
+                                                       document (DOCUMENTATION.txt)
+  Design specifications                                Sections 2-4
+  Diagrams (site map, architecture, data flow)         Sections 2.1, 2.2, 4.2
+  Test Data used in the project                        Section 9.2
+  Test scenarios                                       Section 9.3
+  Project Installation Instructions (MANDATORY)        Section 8
+  Documentation complete & comprehensive, NO source    This document
+  code in documentation
+  ReadMe with assumptions                              Section 10 (assumptions)
+                                                       + README.md in repo
+  Source code submission (zip)                         Project source tree
+  Demo video (.mp4) showing all functionalities        To be recorded and
+                                                       submitted (mandatory
+                                                       per SRS)
+  Optional live hosted URL                             Deploy dist/ per
+                                                       section 8.5
+  Extra creativity/features beyond the SRS             Seasonal page, open-now
+                                                       status bar, proximity
+                                                       sort with fallback,
+                                                       geolocation-aware
+                                                       chatbot, demo auth,
+                                                       SEO meta tags,
+                                                       reduced-motion support
+
+--------------------------------------------------------------------------------
+                                ~~~ End of Document ~~~
+--------------------------------------------------------------------------------
+
