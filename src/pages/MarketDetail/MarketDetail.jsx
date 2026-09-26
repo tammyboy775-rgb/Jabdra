@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
 import BookmarkButton from '../../components/BookmarkButton/BookmarkButton'
-import { productIconMap } from '../../data/marketData.js'
+import { productIconMap } from '../../data/marketData.json'
 import { productImages } from '../../data/productImages.js'
 import { useGeolocation } from '../../hooks/useGeolocation'
 import { marketDistanceKm } from '../../utils/marketUtils'

@@ -137,7 +137,7 @@ IMPORTANT NOTE ON CONTENT
   |  +-------------------------------------------------------------------+ |
   |           |  read-only            |  read               |             |
   |           v                       v                     v             |
-  |  marketData.json / marketData.js   messages.json    localStorage       |
+  |  marketData.json                  messages.json    localStorage       |
   |  (markets, produce, seasons)       (chatbot Q&A)    (bookmarks,        |
   |                                                      notes, session)   |
   |           |                                                     ^      |
@@ -219,7 +219,7 @@ IMPORTANT NOTE ON CONTENT
   Linting           | Oxlint (script: npm run lint)
   Language          | JavaScript (JSX), HTML5, CSS3
   Data store        | JSON / JS text files (marketData.json,
-                    | marketData.js, messages.json) - per SRS "Data Store"
+                    | messages.json, productImages.js) - per SRS "Data Store"
   Persistence       | Browser localStorage (bookmarks, notes, session)
   Browser APIs      | Geolocation API, Intl date/time formatting,
                     | Clipboard API, matchMedia (reduced motion)
@@ -311,7 +311,7 @@ IMPORTANT NOTE ON CONTENT
       directory, loading/error/not-found states.
 
 3.4 PRODUCE GUIDE (route: /produce-guide)
-  Source: src/pages/ProduceGuide/ProduceGuide.jsx, data in marketData.js
+  Source: src/pages/ProduceGuide/ProduceGuide.jsx, data in marketData.json
   SRS items covered:
     - Functionality: a browsable catalogue of produce types, each with a
       description/usage tip, the months it is typically in season (12-month
@@ -460,11 +460,10 @@ IMPORTANT NOTE ON CONTENT
                           | "6:00 AM - 6:00 PM"), products[], coordinates
                           | {lat, lon} (used for map embeds and distance).
   ------------------------+-------------------------------------------------
-  src/data/marketData.js  | Reference datasets: allDays, allProductTypes
-                          | (14 categories), productIconMap, produceGuide
-                          | (name, season month-window, tip), seasonalTips
-                          | (4 seasons with label/blurb/picks), plus a demo
-                          | Millhaven dataset and season helper.
+  src/data/marketData.json| Also holds reference datasets: allDays,
+  (reference datasets)    | allProductTypes (14 categories), productIconMap,
+                          | produceGuide (name, season month-window, tip),
+                          | seasonalTips (4 seasons with label/blurb/picks).
   ------------------------+-------------------------------------------------
   src/data/messages.json   | Chatbot knowledge base: 63 entries, each with a
                           | list of trigger questions and one answer
@@ -485,8 +484,8 @@ IMPORTANT NOTE ON CONTENT
             | 1. request page / search / filter
             v
    +------------------+     2. read (bundled)      +-------------------+
-   |  FreshFind SPA   | -------------------------> | marketData.json / |
-   |  (pages, router) | <------------------------- | marketData.js     |
+   |  FreshFind SPA   | -------------------------> | marketData.json   |
+   |  (pages, router) | <------------------------- |                   |
    +------------------+     3. markets, produce,   +-------------------+
             |                 seasons
             | 4. filter/sort in memory
@@ -704,7 +703,7 @@ IMPORTANT NOTE ON CONTENT
     |   |-- context/          MarketsContext, BookmarksContext, AuthContext
     |   |-- hooks/            useGeolocation, useLocalStorage
     |   |-- utils/            marketUtils (open/sort/distance/season logic)
-    |   |-- data/             marketData.json, marketData.js, messages.json,
+    |   |-- data/             marketData.json, messages.json,
     |   |                     productImages.js
     |   |-- assets/           hero and product images
     |   |-- icons.jsx         Inline SVG icon set
@@ -834,10 +833,9 @@ IMPORTANT NOTE ON CONTENT
 ================================================================================
 
   A-01  All market, produce, and chatbot content is demonstration data.
-        Market records cover Lagos neighborhoods; the bundled reference
-        datasets also contain a fictional "Millhaven" example set. Swapping
-        in real data requires only editing the JSON/JS data files - no code
-        changes - which matches the SRS model of pre-populated data files.
+        Market records cover Lagos neighborhoods. Swapping in real data
+        requires only editing the JSON/JS data files - no code changes -
+        which matches the SRS model of pre-populated data files.
   A-02  Hours are stored as a single daily range (e.g. "6:00 AM - 6:00 PM")
         applied to every listed open day; markets with different weekend
         hours would need separate records.
@@ -889,11 +887,10 @@ IMPORTANT NOTE ON CONTENT
         fast-refresh export style in the context files. They do not affect
         functionality.
 
-  K-04  Two market datasets exist: the directory/chatbot load
-        marketData.json (31 Lagos markets - the active dataset), while
-        marketData.js also carries the original demo markets plus the
-        produce/season reference data. Consolidating into one file would
-        reduce confusion.
+  K-04  Data consolidation: the former marketData.js file was removed and
+        its reference datasets (allDays, allProductTypes, productIconMap,
+        produceGuide, seasonalTips) were merged into marketData.json, which
+        is now the single source of market and produce data.
 
   K-05  Auth is intentionally demo-grade (see assumption A-03).
 

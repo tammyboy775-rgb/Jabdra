@@ -4,7 +4,7 @@ import {
   allProductTypes,
   produceGuide,
   seasonalTips,
-} from "../data/marketData.js";
+} from "../data/marketData.json";
 
 export { markets, allDays, allProductTypes, produceGuide, seasonalTips };
 

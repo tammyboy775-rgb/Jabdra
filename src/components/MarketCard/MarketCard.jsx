@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "../../icons";
 import BookmarkButton from "../BookmarkButton/BookmarkButton";
-import { productIconMap } from "../../data/marketData.js";
+import { productIconMap } from "../../data/marketData.json";
 import { productImages } from "../../data/productImages.js";
 import { isMarketOpen } from "../../utils/marketUtils";
 import "./MarketCard.css";

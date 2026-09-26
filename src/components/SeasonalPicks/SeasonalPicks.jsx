@@ -1,4 +1,5 @@
-import { seasonalTips, currentSeason } from '../../data/marketData'
+import { seasonalTips } from '../../data/marketData'
+import { currentSeason } from '../../utils/marketUtils'
 import { Icon } from '../../icons'
 import './SeasonalPicks.css'
 
@@ -10,7 +11,7 @@ export default function SeasonalPicks({ compact = false }) {
     <div className={`seasonal-picks ${compact ? 'is-compact' : ''}`}>
       <div className="sp-head">
         <span className="sp-kicker"><Icon name="sprout" size={15} /> In season right now</span>
-        <h3>{data.label} in Millhaven</h3>
+        <h3>{data.label} in Lagos</h3>
         <p>{data.blurb}</p>
       </div>
       <ul className="sp-list">

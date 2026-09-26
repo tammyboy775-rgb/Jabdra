@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { seasonalTips, currentSeason } from '../../data/marketData'
+import { seasonalTips } from '../../data/marketData'
+import { currentSeason } from '../../utils/marketUtils'
 import { Icon } from '../../icons'
 import './Seasonal.css'
 

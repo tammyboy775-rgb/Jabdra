@@ -1,4 +1,20 @@
 {
+  "productIconMap": {
+    "Vegetables": "vegetables",
+    "Fruit": "fruit",
+    "Seafood": "seafood",
+    "Meat": "meat",
+    "Dairy": "dairy",
+    "Cheese": "cheese",
+    "Eggs": "eggs",
+    "Bread": "bread",
+    "Baked goods": "baked-goods",
+    "Honey": "honey",
+    "Preserves": "preserves",
+    "Herbs": "herbs",
+    "Flowers": "flowers",
+    "Prepared food": "prepared-food"
+  },
 
   "markets": [
     {
