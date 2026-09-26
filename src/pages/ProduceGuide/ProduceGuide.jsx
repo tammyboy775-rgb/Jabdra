@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Icon } from "../../icons";
 import { produceGuide } from "../../data/marketData";
+import { MarketsContext } from "../../context/MarketsContext";
 import BookmarkButton from "../../components/BookmarkButton/BookmarkButton";
 import "./ProduceGuide.css";
 
@@ -27,8 +29,16 @@ function isInSeason(season, monthIndex) {
 
 export default function ProduceGuide() {
   const [query, setQuery] = useState("");
+  const { markets, isLoading, error } = useContext(MarketsContext);
 
-  const filtered = produceGuide.filter((item) =>
+  // Only show produce that the markets in the directory actually carry
+  const available = useMemo(() => {
+    const products = new Set((markets || []).flatMap((m) => m.products));
+    if (isLoading || error || products.size === 0) return produceGuide;
+    return produceGuide.filter((item) => products.has(item.name));
+  }, [markets, isLoading, error]);
+
+  const filtered = available.filter((item) =>
     item.name.toLowerCase().includes(query.trim().toLowerCase()),
   );
 
@@ -42,9 +52,10 @@ export default function ProduceGuide() {
       </div>
 
       <p className="produce-intro">
-        A general guide to when common fruits and vegetables are typically in
-        season around Millhaven. Exact timing varies a little year to year — ask
-        a vendor for the latest.
+        When the farm produce sold across the{" "}
+        <Link to="/directory" className="link-more">market directory</Link> is
+        typically in season — only the crops our markets actually carry. Exact
+        timing varies a little year to year — ask a vendor for the latest.
       </p>
 
       <label className="produce-search">

@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="ff-footer-bottom">
-        <p>Jabdra</p>
+        <p>© 2026 FreshFind. All rights reserved.</p>
       </div>
     </footer>
   )

@@ -262,6 +262,7 @@
 
   .navbar-inner {
     gap: 1.25rem;
+    justify-content: space-between;
   }
 
   .nav-cta {
@@ -330,9 +331,26 @@
    up to the max screen width
    ============================================ */
 
+/* Two-row header (901px–1249px): top row = brand + action
+   buttons, bottom row = nav links centered. From 1250px up
+   the navbar returns to a single row. */
+@media (min-width: 901px) and (max-width: 1249px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0.75rem;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+}
+
 @media (min-width: 1300px) {
   .navbar-inner {
-    gap: 2.25rem;
+    column-gap: 2.25rem;
     padding-block: 1rem;
   }
 
@@ -345,9 +363,22 @@
   }
 }
 
+/* Compact single row (1250px–1449px): tight enough that the
+   links and buttons fit on one line — this is the band where
+   the 1300px scale-up would otherwise crowd the row */
+@media (min-width: 1250px) and (max-width: 1449px) {
+  .navbar-inner {
+    gap: 1.15rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
 @media (min-width: 1600px) {
   .navbar-inner {
-    gap: 2.5rem;
+    column-gap: 2.5rem;
     padding-block: 1.1rem;
   }
 

@@ -898,41 +898,46 @@ export const productIconMap = {
 }
 
 // months are 0-indexed (0 = Jan) start/end inclusive; wraps if end < start
+// Only farm produce carried by the markets in the market directory
+// (marketData.json) — season windows researched from NAERLS/FAO crop
+// calendars and Nigerian agricultural extension sources.
 export const produceGuide = [
-  { name: 'Asparagus', season: [2, 5], tip: 'Look for tight, closed tips and firm stalks.' },
-  { name: 'Strawberries', season: [3, 6], tip: 'Best flavor comes from berries picked within a day or two.' },
-  { name: 'Sweet corn', season: [5, 8], tip: 'Buy same-day where possible — sugars fade fast after picking.' },
-  { name: 'Tomatoes', season: [5, 9], tip: 'Ask growers which variety is ripest that day rather than picking by looks.' },
-  { name: 'Zucchini', season: [5, 9], tip: 'Smaller squash are more tender than oversized ones.' },
-  { name: 'Peaches', season: [6, 8], tip: 'A ripe peach smells sweet at the stem end.' },
-  { name: 'Apples', season: [8, 11], tip: 'Different varieties peak at different weeks — ask what just came in.' },
-  { name: 'Winter squash', season: [8, 11], tip: 'Cure for a few days at room temperature before storing.' },
-  { name: 'Root vegetables', season: [9, 2], tip: 'Carrots and parsnips sweeten after the season\u2019s first frost.' },
-  { name: 'Kale & hardy greens', season: [9, 3], tip: 'Cold-weather greens are usually less bitter than summer ones.' },
-  { name: 'Citrus', season: [10, 1], tip: 'Heavier fruit for its size usually means juicier segments.' },
-  { name: 'Mushrooms', season: [0, 11], tip: 'Available most of the year from indoor growers — check the stall for what\u2019s freshly picked.' },
+  { name: 'Plantain', season: [0, 11], tip: 'Green for cooking, spotted yellow for eating straight — pick by how soon you\u2019ll use them.' },
+  { name: 'Banana', season: [0, 11], tip: 'Buy green and ripen at home, or choose yellow with a few freckles for today.' },
+  { name: 'Onions', season: [1, 3], tip: 'New-crop bulbs land February to April — heavy with papery skins, never soft at the neck.' },
+  { name: 'Maize', season: [5, 10], tip: 'Fresh ears are best the day they\u2019re picked — press a kernel; it should squirt milky juice.' },
+  { name: 'Okra', season: [5, 9], tip: 'Pods should snap crisply at the tip; if they bend without breaking they\u2019ve gone woody.' },
+  { name: 'Garden Egg', season: [6, 9], tip: 'Glossy, firm skin and a little weight — white types are milder than the bitter green ones.' },
+  { name: 'Yam', season: [7, 9], tip: 'The main harvest runs August to October — firm tubers with dry, flaky skin are the pick.' },
+  { name: 'Peppers', season: [7, 11], tip: 'Rodo, shombo and tatase are freshest from August — look for taut, glossy skin.' },
+  { name: 'Beans', season: [8, 9], tip: 'Fresh stock moves fast after the September harvest — check for smooth skins and no weevil holes.' },
+  { name: 'Groundnuts', season: [8, 9], tip: 'The new crop arrives September to October — roast in-shell at home for the sweetest flavor.' },
+  { name: 'Grains', season: [8, 10], tip: 'Sorghum and millet come in after the rains — ask what was harvested this season.' },
+  { name: 'Rice', season: [9, 11], tip: 'New-crop rice lands October to December — ask what\u2019s freshest before buying by the bag.' },
+  { name: 'Cassava', season: [11, 2], tip: 'The dry-season harvest is the main glut — tubers keep for weeks, so fresh stock sells all year.' },
+  { name: 'Tomatoes', season: [11, 2], tip: 'The December to March harvest is when prices dip — heavy fruits with taut skin, never wrinkled.' },
 ]
 
 export const seasonalTips = {
   spring: {
     label: 'Spring',
-    blurb: 'The first tender vegetables of the year are showing up alongside the last of the stored winter roots.',
-    picks: ['Asparagus', 'Strawberries', 'Spring greens', 'Radishes'],
+    blurb: 'Dry-season harvests carry the racks — new onions, tomatoes and cassava alongside year-round staples.',
+    picks: ['Onions', 'Tomatoes', 'Cassava', 'Plantain'],
   },
   summer: {
     label: 'Summer',
-    blurb: 'Peak season — stalls are at their fullest with stone fruit, tomatoes and sweet corn.',
-    picks: ['Sweet corn', 'Tomatoes', 'Peaches', 'Zucchini'],
+    blurb: 'The rains bring peak growing — stalls fill up with okra, fresh maize and garden eggs.',
+    picks: ['Okra', 'Maize', 'Garden Egg', 'Banana'],
   },
   autumn: {
     label: 'Autumn',
-    blurb: 'Harvest season for storage crops — a good time to stock up on things that keep.',
-    picks: ['Apples', 'Winter squash', 'Root vegetables', 'Pears'],
+    blurb: 'Main harvest season — yams and peppers, with the new crop of beans, groundnuts and grains coming in.',
+    picks: ['Yam', 'Peppers', 'Groundnuts', 'Beans'],
   },
   winter: {
     label: 'Winter',
-    blurb: 'A quieter season, led by hardy greens, stored roots and indoor-grown mushrooms.',
-    picks: ['Kale & hardy greens', 'Citrus', 'Root vegetables', 'Mushrooms'],
+    blurb: 'A quieter season led by the rice and tomato harvests, with peppers winding down and fresh tubers in.',
+    picks: ['Rice', 'Tomatoes', 'Peppers', 'Cassava'],
   },
 }
 
