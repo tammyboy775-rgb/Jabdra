@@ -17,7 +17,10 @@
 .contact-page .hero {
     max-width: 1180px;
     margin: 0 auto;
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1.85fr) minmax(260px, 0.9fr);
+    align-items: end;
+    gap: 38px;
     padding: 24px 32px 0;
     position: relative;
 }
@@ -50,8 +53,8 @@
 }
 
 .contact-page h1 {
-    max-width: 980px;
-    margin: 0 0 18px;
+    max-width: 900px;
+    margin: 0;
     font-family: "Playfair Display", serif;
     font-size: clamp(72px, 7vw, 150px);
     line-height: 0.78;
@@ -68,7 +71,8 @@
 .contact-page .hero-copy {
     max-width: 500px;
     margin: 0;
-    display: block;
+    justify-self: end;
+    align-self: end;
     color: #68736c;
     font-size: 16px;
     line-height: 1.7;
