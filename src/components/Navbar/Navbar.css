@@ -10,7 +10,7 @@
 .navbar-inner {
   max-width: 100%;
   margin: 0 2%;
-  padding: 0.9rem var(--gutter);
+  padding: 0.9rem 0;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -322,6 +322,50 @@
 
   .nav-user-name {
     display: none;
+  }
+}
+
+/* ============================================
+   Large screens — from above 900px
+   up to the max screen width
+   ============================================ */
+
+@media (min-width: 1300px) {
+  .navbar-inner {
+    gap: 2.25rem;
+    padding-block: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.6rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .navbar-inner {
+    gap: 2.5rem;
+    padding-block: 1.1rem;
+  }
+
+  .nav-links {
+    gap: 1.8rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .brand-text {
+    font-size: 1.35rem;
+  }
+
+  .nav-cta {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.9rem;
   }
 }
 
