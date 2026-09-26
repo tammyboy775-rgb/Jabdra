@@ -86,12 +86,23 @@
 }
 
 .product-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.72rem;
   font-weight: 500;
   background: var(--paper-alt);
   color: var(--ink-soft);
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
+}
+
+.product-pill-img {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 3px;
+  flex-shrink: 0;
 }
 
 .product-pill.more {

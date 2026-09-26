@@ -11,6 +11,8 @@ import MarketDetail from "../pages/MarketDetail/MarketDetail";
 import ProduceGuide from "../pages/ProduceGuide/ProduceGuide";
 import Seasonal from "../pages/Seasonal/Seasonal";
 import Bookmarks from "../pages/Bookmarks/Bookmarks";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 import Contact from "../pages/Contact/Contact";
 import About from "../pages/About/About";
 
@@ -30,6 +32,8 @@ function AppRouter() {
 					<Route path="/produce-guide" element={<ProduceGuide />} />
 					<Route path="/seasonal" element={<Seasonal />} />
 					<Route path="/bookmarks" element={<Bookmarks />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/about" element={<About />} />
 				</Routes>

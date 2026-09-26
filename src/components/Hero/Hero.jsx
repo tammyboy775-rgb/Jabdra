@@ -69,7 +69,7 @@ export default function Hero() {
           <img
             key={src}
             src={src}
-            alt=""
+            alt="Farmers' market stalls with fresh produce and flowers"
             className={`hero-bg-img ${index === slide ? 'is-active' : ''}`}
             loading={index === 0 ? 'eager' : 'lazy'}
             decoding="async"
