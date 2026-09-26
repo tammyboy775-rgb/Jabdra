@@ -15,39 +15,31 @@
 }
 
 .contact-page .hero {
-    max-width: 1180px;
+    max-width: 1280px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
-    align-items: end;
-    gap: 36px;
-    padding: 92px 32px 80px;
-    position: relative;
+    padding: 12px 32px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 28px;
+    min-height: 440px;
 }
 
-.contact-page .hero::after {
-    content: "";
-    position: absolute;
-    right: 5%;
-    top: 72px;
-    width: 168px;
-    height: 168px;
-    border: 1px solid #d7d0c1;
-    border-radius: 50%;
-    opacity: 0.8;
-}
-
-.contact-page .hero-copy-wrap {
+.contact-page .hero-text {
+    flex: 1 1 auto;
     min-width: 0;
+    padding-top: 10px;
 }
 
 .contact-page .eyebrow {
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     color: #e25e3e;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1.8px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    display: inline-block;
+    transform: translateY(8px);
 }
 
 .contact-page h1,
@@ -57,13 +49,14 @@
 }
 
 .contact-page h1 {
-    max-width: 760px;
-    margin-bottom: 0;
+    max-width: 860px;
+    margin: 0;
     font-family: "Playfair Display", serif;
-    font-size: clamp(50px, 6vw, 90px);
-    line-height: 0.9;
-    letter-spacing: -2.5px;
+    font-size: clamp(72px, 6.8vw, 170px);
+    line-height: 0.8;
+    letter-spacing: -6px;
     font-weight: 600;
+    color: #171d1a;
 }
 
 .contact-page h1 em {
@@ -72,14 +65,35 @@
     font-weight: 600;
 }
 
+.contact-page .hero-aside {
+    flex: 0 0 500px;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 34px;
+}
+
+.contact-page .hero-circle {
+    width: 172px;
+    height: 172px;
+    border: 1px solid #d6d0c5;
+    border-radius: 50%;
+    position: absolute;
+    right: 58px;
+    top: 18px;
+    opacity: 0.9;
+}
+
 .contact-page .hero-copy {
-    max-width: 420px;
-    margin: 0;
-    justify-self: end;
-    align-self: end;
+    max-width: 520px;
+    margin: 0 0 0 26px;
     color: #68736c;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-page .contact-grid {
