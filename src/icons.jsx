@@ -103,6 +103,12 @@ export const Icon = ({ name, size = 20, className }) => {
           <path d="M3 10h18M8 3v4M16 3v4" />
         </svg>
       )
+    case 'sort':
+      return (
+        <svg {...props}>
+          <path d="M4 6h16M4 12h10M4 18h5" />
+        </svg>
+      )
     default:
       return null
   }

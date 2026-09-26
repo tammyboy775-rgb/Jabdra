@@ -9,6 +9,8 @@ export default function SearchFilter({
   onDayChange,
   activeProduct,
   onProductChange,
+  sortBy,
+  onSortChange,
   resultCount,
 }) {
   return (
@@ -57,6 +59,20 @@ export default function SearchFilter({
             {allProductTypes.map((p) => (
               <option key={p} value={p}>{p}</option>
             ))}
+          </select>
+        </div>
+
+        <div className="sf-group">
+          <span className="sf-label"><Icon name="sort" size={14} /> Sort by</span>
+          <select
+            className="sf-select"
+            value={sortBy}
+            onChange={(e) => onSortChange(e.target.value)}
+            aria-label="Sort markets"
+          >
+            <option value="name">Alphabetical (A–Z)</option>
+            <option value="proximity">Proximity (nearest first)</option>
+            <option value="nextOpen">Next open day</option>
           </select>
         </div>
       </div>

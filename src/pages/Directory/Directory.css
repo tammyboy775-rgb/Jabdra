@@ -4,6 +4,17 @@
   gap: 1.5rem;
 }
 
+.directory-sort-note {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.directory-sort-note.is-warning {
+  color: var(--brick);
+}
+
 .directory-empty {
   background: var(--paper-alt);
   border: 1px dashed var(--line);

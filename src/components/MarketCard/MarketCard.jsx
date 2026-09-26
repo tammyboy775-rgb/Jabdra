@@ -4,7 +4,7 @@ import BookmarkButton from "../BookmarkButton/BookmarkButton";
 import { isMarketOpen } from "../../utils/marketUtils";
 import "./MarketCard.css";
 
-export default function MarketCard({ market }) {
+export default function MarketCard({ market, distance }) {
   return (
     <div className={`market-card swatch-${market.swatch}`}>
       <div className="market-card-top">
@@ -26,6 +26,11 @@ export default function MarketCard({ market }) {
         <span>
           <Icon name="clock" size={14} /> {market.hours}
         </span>
+        {distance != null && (
+          <span className="market-distance">
+            <Icon name="pin" size={14} /> {distance.toFixed(1)} km away
+          </span>
+        )}
       </div>
 
       <div className="market-products">

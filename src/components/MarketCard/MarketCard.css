@@ -74,6 +74,11 @@
   gap: 0.4rem;
 }
 
+.market-meta .market-distance {
+  color: var(--green);
+  font-weight: 600;
+}
+
 .market-products {
   display: flex;
   flex-wrap: wrap;

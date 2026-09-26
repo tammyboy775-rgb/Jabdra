@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SearchFilter from '../../components/SearchFilter/SearchFilter'
 import MarketCard from '../../components/MarketCard/MarketCard'
@@ -7,6 +7,7 @@ import LiveMarketStatus from '../../components/LiveMarketStatus/LiveMarketStatus
 import { useContext } from 'react'
 import './Directory.css'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
+import { marketDistanceKm, sortMarkets } from '../../utils/marketUtils'
 
 export default function Directory() {
   const { markets, isLoading, error } = useContext(MarketsContext)
@@ -14,6 +15,35 @@ export default function Directory() {
   const [query, setQuery] = useState(params.get('q') || '')
   const [activeDay, setActiveDay] = useState(params.get('day') || 'All')
   const [activeProduct, setActiveProduct] = useState('All')
+  const [sortBy, setSortBy] = useState('name')
+  const [userLocation, setUserLocation] = useState(null)
+  const [locationStatus, setLocationStatus] = useState('idle')
+
+  const geoSupported =
+    typeof navigator !== 'undefined' && 'geolocation' in navigator
+
+  const requestLocation = useCallback(() => {
+    if (!geoSupported || userLocation || locationStatus === 'locating') return
+
+    setLocationStatus('locating')
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setUserLocation({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        })
+        setLocationStatus('granted')
+      },
+      () => setLocationStatus('unavailable'),
+      { timeout: 8000, maximumAge: 300000 }
+    )
+  }, [geoSupported, userLocation, locationStatus])
+
+  const handleSortChange = (value) => {
+    setSortBy(value)
+
+    if (value === 'proximity') requestLocation()
+  }
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -27,6 +57,39 @@ export default function Directory() {
       return matchesQuery && matchesDay && matchesProduct
     })
   }, [markets, query, activeDay, activeProduct])
+
+  const sorted = useMemo(
+    () => sortMarkets(filtered, sortBy, { location: userLocation, now: new Date() }),
+    [filtered, sortBy, userLocation]
+  )
+
+  const showDistance = sortBy === 'proximity' && Boolean(userLocation)
+
+  let sortNote = { text: 'Sorted alphabetically by market name.', warning: false }
+
+  if (sortBy === 'nextOpen') {
+    sortNote = {
+      text: 'Sorted by next open day — markets opening today come first.',
+      warning: false,
+    }
+  } else if (sortBy === 'proximity') {
+    if (locationStatus === 'locating') {
+      sortNote = {
+        text: 'Requesting your location to sort by distance…',
+        warning: false,
+      }
+    } else if (locationStatus === 'granted') {
+      sortNote = {
+        text: 'Sorted by distance from your current location.',
+        warning: false,
+      }
+    } else {
+      sortNote = {
+        text: 'Location unavailable — showing alphabetical order instead.',
+        warning: true,
+      }
+    }
+  }
 
   return (
     <section className="page-section directory-page">
@@ -47,8 +110,16 @@ export default function Directory() {
         onDayChange={setActiveDay}
         activeProduct={activeProduct}
         onProductChange={setActiveProduct}
+        sortBy={sortBy}
+        onSortChange={handleSortChange}
         resultCount={filtered.length}
       />
+
+      {!isLoading && !error && (
+        <p className={`directory-sort-note${sortNote.warning ? ' is-warning' : ''}`}>
+          {sortNote.text}
+        </p>
+      )}
 
       {isLoading ? (
         <div className="directory-empty"><p>Loading markets...</p></div>
@@ -56,7 +127,13 @@ export default function Directory() {
         <div className="directory-empty"><p>Markets are temporarily unavailable.</p></div>
       ) : filtered.length > 0 ? (
         <div className="directory-grid">
-          {filtered.map((m) => <MarketCard key={m.id} market={m} />)}
+          {sorted.map((m) => (
+            <MarketCard
+              key={m.id}
+              market={m}
+              distance={showDistance ? marketDistanceKm(m, userLocation) : null}
+            />
+          ))}
         </div>
       ) : (
         <div className="directory-empty">
