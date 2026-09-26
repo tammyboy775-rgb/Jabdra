@@ -17,28 +17,25 @@
 .contact-page .hero {
     max-width: 1180px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.85fr) minmax(260px, 0.9fr);
-    align-items: end;
-    gap: 38px;
-    padding: 24px 32px 0;
+    padding: 18px 32px 0;
     position: relative;
+    min-height: 360px;
 }
 
 .contact-page .hero::after {
     content: "";
     position: absolute;
-    right: 5%;
-    top: 72px;
-    width: 168px;
-    height: 168px;
+    right: 120px;
+    top: 52px;
+    width: 180px;
+    height: 180px;
     border: 1px solid #d7d0c1;
     border-radius: 50%;
     opacity: 0.8;
 }
 
 .contact-page .eyebrow {
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     color: #e25e3e;
     font-size: 11px;
     font-weight: 700;
@@ -53,13 +50,14 @@
 }
 
 .contact-page h1 {
-    max-width: 900px;
+    max-width: 860px;
     margin: 0;
     font-family: "Playfair Display", serif;
-    font-size: clamp(72px, 7vw, 150px);
-    line-height: 0.78;
+    font-size: clamp(70px, 6vw, 170px);
+    line-height: 0.8;
     letter-spacing: -4px;
     font-weight: 600;
+    color: #171d1a;
 }
 
 .contact-page h1 em {
@@ -69,13 +67,11 @@
 }
 
 .contact-page .hero-copy {
-    max-width: 500px;
-    margin: 0;
-    justify-self: end;
-    align-self: end;
+    max-width: 560px;
+    margin: 18px 0 0;
     color: #68736c;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 .contact-page .contact-grid {
