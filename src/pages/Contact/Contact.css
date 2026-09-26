@@ -266,7 +266,9 @@
 
 .contact-page dd {
     margin: 0;
+    min-width: 0;
     font-weight: 600;
+    overflow-wrap: anywhere;
 }
 
 .contact-page dd a {
@@ -350,25 +352,68 @@
     line-height: 1.7;
 }
 
-@media (max-width: 720px) {
+/* Tablet and below: stack the hero. The desktop layout pins the
+   aside to a fixed 500px, which squeezes the headline column until
+   the text overflows and overlaps the copy on smaller screens. */
+@media (max-width: 1024px) {
     .contact-page .hero {
-        padding: 72px 20px 58px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        min-height: 0;
+        padding-bottom: 48px;
     }
 
-    .contact-page .hero::after {
-        right: -45px;
-        top: 30px;
+    .contact-page .hero-aside {
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: 0;
+        margin-top: 0;
+        display: block;
     }
 
-    .contact-page h1 {
-        font-size: 45px;
-        letter-spacing: -1.5px;
+    /* Decorative ring becomes a static block so it can never
+       sit on top of the hero copy once the layout stacks. */
+    .contact-page .hero-circle {
+        position: static;
+        margin-bottom: 24px;
     }
 
+    .contact-page .hero-copy {
+        margin: 0;
+        max-width: 620px;
+    }
+}
+
+/* Stack the form/details and FAQ columns before they get cramped. */
+@media (max-width: 900px) {
     .contact-page .contact-grid,
     .contact-page .faq-section {
         grid-template-columns: 1fr;
         gap: 50px;
+    }
+}
+
+@media (max-width: 720px) {
+    .contact-page .hero {
+        padding: 72px 20px 58px;
+        gap: 24px;
+    }
+
+    .contact-page h1 {
+        font-size: clamp(36px, 11.5vw, 45px);
+        line-height: 0.9;
+        letter-spacing: -1.5px;
+    }
+
+    .contact-page .hero-circle {
+        width: 84px;
+        height: 84px;
+        margin-bottom: 18px;
+    }
+
+    .contact-page .hero-copy {
+        font-size: 16px;
     }
 
     .contact-page .contact-grid {
