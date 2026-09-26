@@ -17,11 +17,7 @@
 .contact-page .hero {
     max-width: 1180px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
-    align-items: end;
-    gap: 36px;
-    padding: 92px 32px 80px;
+    padding: 24px 32px 0;
     position: relative;
 }
 
@@ -35,10 +31,6 @@
     border: 1px solid #d7d0c1;
     border-radius: 50%;
     opacity: 0.8;
-}
-
-.contact-page .hero-copy-wrap {
-    min-width: 0;
 }
 
 .contact-page .eyebrow {
@@ -57,12 +49,12 @@
 }
 
 .contact-page h1 {
-    max-width: 760px;
-    margin-bottom: 0;
+    max-width: 980px;
+    margin: 0 0 18px;
     font-family: "Playfair Display", serif;
-    font-size: clamp(50px, 6vw, 90px);
-    line-height: 0.9;
-    letter-spacing: -2.5px;
+    font-size: clamp(72px, 7vw, 150px);
+    line-height: 0.78;
+    letter-spacing: -4px;
     font-weight: 600;
 }
 
@@ -73,10 +65,8 @@
 }
 
 .contact-page .hero-copy {
-    max-width: 420px;
+    max-width: 500px;
     margin: 0;
-    justify-self: end;
-    align-self: end;
     color: #68736c;
     font-size: 16px;
     line-height: 1.7;

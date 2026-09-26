@@ -90,15 +90,13 @@ function Contact() {
     return (
         <main className="contact-page">
             <section className="hero" id="contact">
-                <div className="hero-copy-wrap">
-                    <p className="eyebrow">We’re listening</p>
+                <p className="eyebrow">We’re listening</p>
 
-                    <h1>
-                        Get in touch with the
-                        <br />
-                        <em>FreshFind</em> team.
-                    </h1>
-                </div>
+                <h1>
+                    Get in touch with the
+                    <br />
+                    <em>FreshFind</em> team.
+                </h1>
 
                 <p className="hero-copy">
                     Have a question, a suggestion, or found incorrect market
