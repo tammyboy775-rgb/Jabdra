@@ -1,0 +1,746 @@
+[
+  {
+    "questions": [
+      "What is this website",
+      "What is this site",
+      "What is FreshFind",
+      "What does FreshFind do",
+      "What can I do here",
+      "What can I do on this website"
+    ],
+    "answer": "FreshFind is a fruit and farm-produce guide where you can explore different fruits, learn about them, discover where they come from, and find out what may be available around Lagos."
+  },
+
+  {
+    "questions": [
+      "What fruits are available",
+      "Which fruits are available",
+      "What fruits do you have",
+      "What fruit is available",
+      "What fruits can I explore",
+      "Show me some fruits"
+    ],
+    "answer": "You can explore fruits such as mangoes, bananas, pineapples, pawpaw, watermelon, oranges, avocado, coconut, guava, passion fruit, apples, grapes, strawberries, and many more."
+  },
+
+  {
+    "questions": [
+      "What fruits are in Nigeria",
+      "Which fruits are found in Nigeria",
+      "What fruits grow in Nigeria",
+      "What Nigerian fruits are there",
+      "Fruits in Nigeria",
+      "Nigerian fruits"
+    ],
+    "answer": "Common fruits found in Nigeria include mangoes, bananas, plantains, pineapples, pawpaw, watermelon, oranges, tangerines, guava, coconut, avocado, passion fruit, and seasonal fruits such as agbalumo."
+  },
+
+  {
+    "questions": [
+      "What fruits grow in Lagos",
+      "Which fruits grow in Lagos",
+      "What fruit can grow in Lagos",
+      "What fruits are grown in Lagos",
+      "Fruits grown in Lagos",
+      "Fruit farming in Lagos"
+    ],
+    "answer": "Fruits that can be grown in Lagos and surrounding areas include pawpaw, pineapple, watermelon, banana, plantain, coconut, guava and some citrus fruits. Lagos also receives fruit from farms in other parts of Nigeria."
+  },
+
+  {
+    "questions": [
+      "Tell me about mangoes",
+      "What is a mango",
+      "What are mangoes",
+      "Can you tell me about mango",
+      "Mango information",
+      "Mango info",
+      "About mango",
+      "Mango"
+    ],
+    "answer": "Mangoes are tropical fruits with juicy, sweet flesh and a large seed. Nigeria grows several mango varieties, and mangoes become especially noticeable in markets during their main harvest periods."
+  },
+
+  {
+    "questions": [
+      "Tell me about bananas",
+      "What is a banana",
+      "What are bananas",
+      "Can you tell me about banana",
+      "Banana information",
+      "Banana info",
+      "About banana",
+      "Banana"
+    ],
+    "answer": "Bananas are soft, naturally sweet fruits that grow in bunches. They are widely available in Nigeria and can be eaten fresh or used in smoothies, baking and cooking."
+  },
+
+  {
+    "questions": [
+      "Tell me about plantain",
+      "What is plantain",
+      "What are plantains",
+      "Can you tell me about plantain",
+      "Plantain information",
+      "Plantain info",
+      "About plantain",
+      "Plantain"
+    ],
+    "answer": "Plantain is closely related to banana but is commonly cooked before eating. It can be fried, boiled, roasted, or prepared in many Nigerian dishes."
+  },
+
+  {
+    "questions": [
+      "Tell me about pineapple",
+      "Tell me about pineapples",
+      "What is a pineapple",
+      "What are pineapples",
+      "Can you tell me about pineapple",
+      "Pineapple information",
+      "Pineapple info",
+      "About pineapple",
+      "Pineapple"
+    ],
+    "answer": "Pineapples are tropical fruits with rough outer skin and juicy sweet-tart flesh. They are grown in several parts of Nigeria and are commonly sold in Lagos markets."
+  },
+
+  {
+    "questions": [
+      "Tell me about pawpaw",
+      "What is pawpaw",
+      "What is papaya",
+      "What are pawpaws",
+      "Can you tell me about pawpaw",
+      "Pawpaw information",
+      "Pawpaw info",
+      "Papaya info",
+      "About pawpaw",
+      "Pawpaw"
+    ],
+    "answer": "Pawpaw, also known as papaya, is a tropical fruit with soft orange or yellow flesh and many black seeds. It is commonly grown and sold in Nigeria."
+  },
+
+  {
+    "questions": [
+      "Tell me about watermelon",
+      "Tell me about watermelons",
+      "What is a watermelon",
+      "What are watermelons",
+      "Can you tell me about watermelon",
+      "Watermelon information",
+      "Watermelon info",
+      "About watermelon",
+      "Watermelon"
+    ],
+    "answer": "Watermelon has juicy flesh and a thick green rind. It contains a lot of water and is especially popular during hot weather."
+  },
+
+  {
+    "questions": [
+      "Tell me about oranges",
+      "What is an orange",
+      "What are oranges",
+      "Can you tell me about orange",
+      "Orange information",
+      "Orange info",
+      "About orange",
+      "Orange"
+    ],
+    "answer": "Oranges are citrus fruits with juicy segments and a refreshing sweet or slightly sour flavor. They are commonly sold throughout Nigeria."
+  },
+
+  {
+    "questions": [
+      "Tell me about avocado",
+      "What is an avocado",
+      "What are avocados",
+      "Can you tell me about avocado",
+      "Avocado information",
+      "Avocado info",
+      "What is pear",
+      "What is Nigerian pear"
+    ],
+    "answer": "Avocado is a fruit with creamy flesh surrounding a large seed. In Nigeria it is often called pear and can be eaten fresh or added to meals."
+  },
+
+  {
+    "questions": [
+      "Tell me about coconut",
+      "What is coconut",
+      "What is a coconut",
+      "What are coconuts",
+      "Can you tell me about coconut",
+      "Coconut information",
+      "Coconut info",
+      "About coconut",
+      "Coconut"
+    ],
+    "answer": "Coconut comes from the coconut palm and contains coconut water and white flesh. Coconut is especially familiar in coastal areas and is widely used in Nigerian food and drinks."
+  },
+
+  {
+    "questions": [
+      "Tell me about guava",
+      "What is guava",
+      "What are guavas",
+      "Can you tell me about guava",
+      "Guava information",
+      "Guava info",
+      "About guava",
+      "Guava"
+    ],
+    "answer": "Guava is a fragrant fruit that can have green or yellow skin and white or pink flesh. It contains many small edible seeds."
+  },
+
+  {
+    "questions": [
+      "Tell me about passion fruit",
+      "What is passion fruit",
+      "What are passion fruits",
+      "Can you tell me about passion fruit",
+      "Passion fruit information",
+      "Passion fruit info",
+      "About passion fruit",
+      "Passion fruit"
+    ],
+    "answer": "Passion fruit has a tough outer skin and juicy aromatic pulp containing many small edible seeds. Its flavor is strongly sweet and tart."
+  },
+
+  {
+    "questions": [
+      "Tell me about agbalumo",
+      "What is agbalumo",
+      "What are agbalumo",
+      "What is African star apple",
+      "Tell me about African star apple",
+      "Agbalumo information",
+      "Agbalumo info",
+      "About agbalumo",
+      "Agbalumo"
+    ],
+    "answer": "Agbalumo, also called African star apple, is a seasonal fruit popular in Nigeria. It has a distinctive sweet and tangy flavor and is usually associated with a particular period of the year."
+  },
+
+  {
+    "questions": [
+      "Is tomato a fruit",
+      "Is tomato a fruit or vegetable",
+      "Are tomatoes fruits",
+      "What is a tomato",
+      "Tell me about tomatoes",
+      "Tomato fruit"
+    ],
+    "answer": "Yes. Botanically, a tomato is a fruit because it develops from a flower and contains seeds. In cooking, however, it is usually treated as a vegetable."
+  },
+
+  {
+    "questions": [
+      "Which fruits are tropical",
+      "What fruits are tropical",
+      "Give me tropical fruits",
+      "Name some tropical fruits",
+      "What is a tropical fruit"
+    ],
+    "answer": "Tropical fruits include mangoes, bananas, pineapples, pawpaw, coconut, passion fruit, guava and many other fruits that grow well in warm climates."
+  },
+
+  {
+    "questions": [
+      "Which fruits are citrus",
+      "What fruits are citrus",
+      "What are citrus fruits",
+      "Give me some citrus fruits",
+      "Name some citrus fruits"
+    ],
+    "answer": "Citrus fruits include oranges, lemons, limes, grapefruits, mandarins and tangerines."
+  },
+
+  {
+    "questions": [
+      "Which fruit is sweetest",
+      "What is the sweetest fruit",
+      "What fruit is very sweet",
+      "Which fruits are sweet",
+      "Give me sweet fruits"
+    ],
+    "answer": "There is no single fruit that is always the sweetest because sweetness depends on the variety and ripeness. Ripe mangoes, grapes, dates and some melons can be very sweet."
+  },
+
+  {
+    "questions": [
+      "Which fruit is biggest",
+      "What is the biggest fruit",
+      "What fruit is the largest",
+      "Which fruit grows biggest",
+      "Largest fruit"
+    ],
+    "answer": "Jackfruit is one of the largest tree-grown fruits. Watermelons can also become very large."
+  },
+
+  {
+    "questions": [
+      "Are bananas berries",
+      "Is banana a berry",
+      "Are bananas actually berries",
+      "Banana berry",
+      "Why is banana a berry"
+    ],
+    "answer": "Yes. Botanically, bananas are classified as berries because of the way they develop from the flower of the plant."
+  },
+
+  {
+    "questions": [
+      "Are strawberries berries",
+      "Is strawberry a berry",
+      "Are strawberries actually berries",
+      "Strawberry berry",
+      "Why isn't strawberry a berry"
+    ],
+    "answer": "Despite their name, strawberries are not botanical berries. Their structure develops differently from a true botanical berry."
+  },
+
+  {
+    "questions": [
+      "What is the difference between fruit and vegetable",
+      "What's the difference between fruits and vegetables",
+      "How are fruits different from vegetables",
+      "Fruit or vegetable",
+      "What makes something a fruit"
+    ],
+    "answer": "Botanically, a fruit develops from the flower of a plant and usually contains seeds. Vegetables are other edible plant parts such as roots, stems and leaves. Cooking uses these categories differently."
+  },
+
+  {
+    "questions": [
+      "Why are fruits different colors",
+      "Why do fruits have different colors",
+      "Why do fruits change color",
+      "Why does fruit change color",
+      "What makes fruit change color"
+    ],
+    "answer": "Fruit colors come from natural pigments such as chlorophyll, carotenoids and anthocyanins. These pigments can become more visible as fruits develop and ripen."
+  },
+
+  {
+    "questions": [
+      "Why are fruits sweet",
+      "Why does fruit taste sweet",
+      "What makes fruit sweet",
+      "Why is mango sweet",
+      "Why are ripe fruits sweeter"
+    ],
+    "answer": "Many fruits contain natural sugars. During ripening, some fruits convert stored starches into sugars, which can make them taste sweeter."
+  },
+
+  {
+    "questions": [
+      "Why are fruits sour",
+      "Why does fruit taste sour",
+      "What makes fruit sour",
+      "Why are oranges sour",
+      "Why are lemons sour"
+    ],
+    "answer": "Sourness usually comes from organic acids naturally present in fruits. Citrus fruits, for example, contain citric acid."
+  },
+
+  {
+    "questions": [
+      "What fruits are in season",
+      "Which fruits are in season",
+      "What's in season",
+      "What fruit is in season",
+      "What fruits are currently in season",
+      "Seasonal fruits"
+    ],
+    "answer": "Fruit seasons vary across Nigeria. Mangoes and agbalumo have noticeable seasonal periods, while fruits such as bananas and pawpaw can be available for much longer depending on farming conditions and supply."
+  },
+
+  {
+    "questions": [
+      "When is mango season",
+      "When do mangoes come out",
+      "When are mangoes available",
+      "What month is mango season",
+      "Mango season"
+    ],
+    "answer": "Mangoes are generally associated with the dry-season to early-rainy-season harvest period in Nigeria, although timing can vary by variety and location."
+  },
+
+  {
+    "questions": [
+      "When is agbalumo season",
+      "When does agbalumo come out",
+      "When are agbalumo available",
+      "What month is agbalumo season",
+      "Agbalumo season"
+    ],
+    "answer": "Agbalumo is a seasonal fruit in Nigeria and is typically seen in markets during its harvest period rather than throughout the entire year."
+  },
+
+  {
+    "questions": [
+      "What grows on a farm",
+      "What can farmers grow",
+      "What crops grow on farms",
+      "What fruits grow on farms",
+      "What do farmers grow"
+    ],
+    "answer": "Farms can produce fruits, vegetables, grains, roots, tubers and other crops. Fruit farms may grow mangoes, pawpaw, pineapple, citrus, banana, plantain and other crops."
+  },
+
+  {
+    "questions": [
+      "How are fruits grown",
+      "How do farmers grow fruit",
+      "How do fruits grow",
+      "How does fruit farming work",
+      "How are fruits produced"
+    ],
+    "answer": "Fruit plants can be grown from seeds, cuttings or grafted plants depending on the species. Farmers manage soil, water, nutrients, pests and harvesting to produce healthy crops."
+  },
+
+  {
+    "questions": [
+      "How does mango grow",
+      "Where does mango grow",
+      "Does mango grow on a tree",
+      "How are mangoes grown",
+      "Mango farming"
+    ],
+    "answer": "Mangoes grow on trees. The trees produce flowers that develop into mango fruits after successful pollination."
+  },
+
+  {
+    "questions": [
+      "How does pineapple grow",
+      "Where does pineapple grow",
+      "Does pineapple grow on a tree",
+      "How are pineapples grown",
+      "Pineapple farming"
+    ],
+    "answer": "Pineapples grow as low plants rather than on trees. A pineapple develops from many flowers that join together into one compound fruit."
+  },
+
+  {
+    "questions": [
+      "How does banana grow",
+      "Where does banana grow",
+      "Does banana grow on a tree",
+      "How are bananas grown",
+      "Banana farming"
+    ],
+    "answer": "Bananas grow from large herbaceous plants rather than traditional woody trees. The plant produces a bunch of bananas from a flowering structure."
+  },
+
+  {
+    "questions": [
+      "Where do fruits come from",
+      "Where does fruit come from",
+      "Where does Lagos get fruit",
+      "Where do fruits in Lagos come from",
+      "Where are fruits grown"
+    ],
+    "answer": "Fruits sold in Lagos can come from farms in Lagos State and from farming regions across Nigeria. Produce is transported through traders and major distribution markets before reaching shops and consumers."
+  },
+
+  {
+    "questions": [
+      "Where do farmers sell fruit",
+      "Where can farmers sell fruits",
+      "How do farmers sell fruit",
+      "Who buys fruit from farmers",
+      "Where do farmers take their produce"
+    ],
+    "answer": "Farmers may sell through farm-gate buyers, wholesalers, traders, local markets, distributors or directly to customers. Large produce markets can connect farmers and traders with buyers."
+  },
+
+  {
+    "questions": [
+      "What is a fruit farm",
+      "What is fruit farming",
+      "What happens on a fruit farm",
+      "How does a fruit farm work",
+      "Fruit farm"
+    ],
+    "answer": "A fruit farm is a farm where fruit-producing plants are cultivated and managed for harvest. Depending on the farm, it might specialize in mangoes, citrus, pineapple, pawpaw or several crops."
+  },
+
+  {
+    "questions": [
+      "What is farm produce",
+      "What does farm produce mean",
+      "What counts as farm produce",
+      "What is agricultural produce",
+      "Farm produce"
+    ],
+    "answer": "Farm produce refers to crops and other products produced by farms. This can include fruits, vegetables, grains, roots, tubers and other agricultural products."
+  },
+
+  {
+    "questions": [
+      "What is Mile 12",
+      "Tell me about Mile 12",
+      "Where is Mile 12",
+      "What is Mile 12 market",
+      "What is sold at Mile 12",
+      "Mile 12 market"
+    ],
+    "answer": "Mile 12 Market in Lagos is a major fresh-produce trading hub. It is known for large quantities of fruits, vegetables and other agricultural products arriving from different parts of Nigeria."
+  },
+
+  {
+    "questions": [
+      "What is Oyingbo",
+      "Tell me about Oyingbo",
+      "What is Oyingbo market",
+      "Where is Oyingbo market",
+      "What can I buy at Oyingbo"
+    ],
+    "answer": "Oyingbo is a well-known food market area on Lagos Mainland where shoppers can find many types of food and fresh produce."
+  },
+
+  {
+    "questions": [
+      "Where can I buy fruit",
+      "Where can I buy fruits",
+      "Where can I get fruit",
+      "Where can I find fruits",
+      "Where should I buy fruit",
+      "Fruit market near me"
+    ],
+    "answer": "You can buy fruit from neighbourhood markets, roadside fruit sellers, supermarkets, produce shops and larger food markets across Lagos."
+  },
+
+  {
+    "questions": [
+      "Where can I buy mango",
+      "Where can I get mangoes",
+      "Where are mangoes sold",
+      "Where can I find mangoes",
+      "Mango market"
+    ],
+    "answer": "Mangoes can be found at fruit sellers, neighbourhood markets and larger produce markets when they are in supply. Availability changes during the year."
+  },
+
+  {
+    "questions": [
+      "How much is fruit",
+      "How much are fruits",
+      "How much does fruit cost",
+      "What is the price of fruit",
+      "Fruit price"
+    ],
+    "answer": "Fruit prices change frequently in Lagos depending on the fruit, season, size, quality, location and supply. Check the current seller price before buying."
+  },
+
+  {
+    "questions": [
+      "Why are fruits expensive",
+      "Why is fruit expensive",
+      "Why did fruit prices increase",
+      "Why does fruit cost so much",
+      "Why are mangoes expensive"
+    ],
+    "answer": "Fruit prices can increase when supply is low, transport costs rise, weather affects farms, or a fruit is outside its main harvest period."
+  },
+
+  {
+    "questions": [
+      "How do I know if a mango is ripe",
+      "How can I tell if mango is ripe",
+      "Is my mango ripe",
+      "How do I check a mango",
+      "When is mango ready to eat"
+    ],
+    "answer": "A ripe mango often gives slightly when gently pressed and may have a pleasant fruity smell. Color alone is not always reliable because mango varieties differ."
+  },
+
+  {
+    "questions": [
+      "How do I know if pawpaw is ripe",
+      "How can I tell if pawpaw is ripe",
+      "Is my pawpaw ripe",
+      "How do I check pawpaw",
+      "When is pawpaw ready to eat"
+    ],
+    "answer": "A ripe pawpaw usually becomes softer and develops more yellow or orange color on the skin. It should not have major signs of spoilage."
+  },
+
+  {
+    "questions": [
+      "How should I store bananas",
+      "How do I store bananas",
+      "Where should I keep bananas",
+      "How can I keep bananas fresh",
+      "Banana storage"
+    ],
+    "answer": "Keep bananas at room temperature while they ripen. Refrigeration can slow further ripening once they are ripe, although the peel may become darker."
+  },
+
+  {
+    "questions": [
+      "How should I store mangoes",
+      "How do I store mangoes",
+      "Where should I keep mangoes",
+      "How can I keep mangoes fresh",
+      "Mango storage"
+    ],
+    "answer": "Unripe mangoes can be kept at room temperature until they ripen. Once ripe, refrigeration can help slow further ripening."
+  },
+
+  {
+    "questions": [
+      "How do I cut a mango",
+      "How to cut mango",
+      "How can I cut a mango",
+      "How do you cut mangoes",
+      "Cutting mango"
+    ],
+    "answer": "Wash the mango, cut along both sides of the large flat seed, score the flesh into pieces without cutting through the skin, then scoop the pieces away from the skin."
+  },
+
+  {
+    "questions": [
+      "How do I cut a pineapple",
+      "How to cut pineapple",
+      "How can I cut a pineapple",
+      "How do you cut pineapple",
+      "Cutting pineapple"
+    ],
+    "answer": "Remove the top and bottom, stand the pineapple upright, carefully remove the outer skin, then cut the flesh away from the tough central core."
+  },
+
+  {
+    "questions": [
+      "What fruit has the most water",
+      "Which fruit has the most water",
+      "What fruit contains lots of water",
+      "Which fruit is mostly water",
+      "Fruit with lots of water"
+    ],
+    "answer": "Watermelon is famous for its very high water content. Strawberries, oranges and grapefruit also contain a lot of water."
+  },
+
+  {
+    "questions": [
+      "What fruit has vitamin C",
+      "Which fruit has vitamin C",
+      "What fruits contain vitamin C",
+      "Which fruits have vitamin C",
+      "Fruit with vitamin C"
+    ],
+    "answer": "Oranges and other citrus fruits contain vitamin C. Guava, kiwi and strawberries are also notable sources."
+  },
+
+  {
+    "questions": [
+      "What fruit is good for smoothies",
+      "What fruits are good for smoothies",
+      "Which fruit can I use in a smoothie",
+      "What fruit should I put in a smoothie",
+      "Best fruits for smoothies"
+    ],
+    "answer": "Banana, mango, pineapple, pawpaw, strawberries and other soft fruits can work well in smoothies."
+  },
+
+  {
+    "questions": [
+      "What fruit goes with mango",
+      "What fruits go with mango",
+      "What can I mix with mango",
+      "What fruit pairs with mango",
+      "Mango combinations"
+    ],
+    "answer": "Mango pairs well with pineapple, banana, passion fruit, oranges, strawberries and lime."
+  },
+
+  {
+    "questions": [
+      "Can I eat fruit every day",
+      "Is it okay to eat fruit every day",
+      "Can I eat fruits daily",
+      "Should I eat fruit every day",
+      "Eating fruit every day"
+    ],
+    "answer": "Fruit can be part of a varied and balanced diet. Eating different fruits provides a wider range of nutrients."
+  },
+
+  {
+    "questions": [
+      "Why should I eat fruit",
+      "Why is fruit good",
+      "What are fruits good for",
+      "Why should people eat fruit",
+      "Benefits of fruit"
+    ],
+    "answer": "Fruit can provide fiber, vitamins, minerals, water and other naturally occurring compounds. Different fruits provide different nutrients."
+  },
+
+  {
+    "questions": [
+      "What is the healthiest fruit",
+      "Which fruit is healthiest",
+      "What fruit is the best for health",
+      "Which fruit is most healthy",
+      "Healthy fruit"
+    ],
+    "answer": "There is no single fruit that is universally the healthiest. Different fruits provide different combinations of nutrients."
+  },
+
+  {
+    "questions": [
+      "Give me a random fruit",
+      "Give me a fruit",
+      "Tell me a random fruit",
+      "Random fruit",
+      "Pick a fruit"
+    ],
+    "answer": "Today's random fruit is agbalumo! 🍊 It is a seasonal Nigerian fruit with a distinctive sweet and tangy flavor."
+  },
+
+  {
+    "questions": [
+      "Tell me a fruit fact",
+      "Give me a fruit fact",
+      "Tell me something about fruits",
+      "Give me an interesting fruit fact",
+      "Fruit fact"
+    ],
+    "answer": "Fruit fact: bananas are botanically berries, while strawberries are not true botanical berries."
+  },
+
+  {
+    "questions": [
+      "Hello",
+      "Hi",
+      "Hey",
+      "Hello there",
+      "Hi there",
+      "Hey there",
+      "hw far"
+    ],
+    "answer": "Hello! 🍎 I'm your FreshFind fruit and farm guide. Ask me about fruits, farms, seasons or markets around Lagos."
+  },
+
+  {
+    "questions": [
+      "Help",
+      "Can you help me",
+      "What can I ask",
+      "What can you help with",
+      "How can you help me"
+    ],
+    "answer": "You can ask me about Nigerian fruits, farms, fruit seasons, Lagos markets, fruit storage, farming, prices, or interesting fruit facts."
+  },
+
+  {
+    "questions": [
+      "Thank you",
+      "Thanks",
+      "Thank",
+      "Thanks a lot",
+      "Thank you so much"
+    ],
+    "answer": "You're welcome! 🍓 Happy fruit exploring!"
+  }
+]
