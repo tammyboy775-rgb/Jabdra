@@ -90,18 +90,28 @@ function Contact() {
     return (
         <main className="contact-page">
             <section className="hero" id="contact">
-                <p className="eyebrow">We’re listening</p>
+                <div className="hero-text">
+                    <p className="eyebrow">We’re listening</p>
 
-                <h1>
-                    Get in touch with the
-                    <br />
-                    <em>FreshFind</em> team.
-                </h1>
+                    <h1>
+                        Get in touch
+                        <br />
+                        with the
+                        <br />
+                        <em>FreshFind</em>
+                        <br />
+                        team.
+                    </h1>
+                </div>
 
-                <p className="hero-copy">
-                    Have a question, a suggestion, or found incorrect market
-                    information? We’d love to hear from you.
-                </p>
+                <div className="hero-aside">
+                    <div className="hero-circle" aria-hidden="true" />
+
+                    <p className="hero-copy">
+                        Have a question, a suggestion, or found incorrect
+                        market information? We’d love to hear from you.
+                    </p>
+                </div>
             </section>
 
             <section
