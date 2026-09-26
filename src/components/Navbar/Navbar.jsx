@@ -21,8 +21,8 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-inner">
-        <NavLink to="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">
+        <NavLink to="/" className="brand" onClick={() => setOpen(false)} aria-label="FreshFind home">
+          <span className="brand-mark" aria-hidden="true">
             <Icon name="leaf" size={18} />
           </span>
           <span className="brand-text">FreshFind</span>
@@ -57,8 +57,10 @@ export default function Navbar() {
             Sign up
           </button>
           <button
+            type="button"
             className="menu-toggle"
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <Icon name={open ? "close" : "menu"} size={20} />

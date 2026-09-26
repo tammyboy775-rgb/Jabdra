@@ -49,6 +49,22 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.route-fade {
+  animation: route-fade-in 0.25s ease-out;
+}
+
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 img {
@@ -165,6 +181,10 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .route-fade {
+    animation: none;
   }
 }
 
