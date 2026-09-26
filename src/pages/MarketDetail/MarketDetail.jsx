@@ -21,9 +21,6 @@ export default function MarketDetail() {
 
   const { id } = useParams()
   const market = markets.find((m) => m.id === id)
-  const distance = userLocation && market.coordinates
-    ? marketDistanceKm(market, userLocation)
-    : null
 
   if (isLoading) {
     return <section className="page-section market-detail"><p>Loading market...</p></section>
@@ -43,6 +40,10 @@ export default function MarketDetail() {
       </section>
     );
   }
+
+  const distance = userLocation && market.coordinates
+    ? marketDistanceKm(market, userLocation)
+    : null
 
   return (
     <section className="page-section market-detail">

@@ -108,9 +108,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
   text-align: center;
-  padding: 0.75rem 0.5rem;
+  padding: 1.25rem;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
@@ -120,15 +120,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 96px;
+  height: 96px;
 }
 
 .product-tile-icon img {
-  width: 32px;
-  height: 32px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 10px;
+}
+
+.product-tile-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
 }
 
 .product-tile-label {
