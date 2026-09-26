@@ -12,6 +12,8 @@ export default function SearchFilter({
   sortBy,
   onSortChange,
   resultCount,
+  showOpenNow,
+  onOpenNowChange,
 }) {
   return (
     <div className="search-filter">
@@ -49,17 +51,21 @@ export default function SearchFilter({
         </div>
 
         <div className="sf-group">
-          <span className="sf-label"><Icon name="tag" size={14} /> Sells</span>
-          <select
-            className="sf-select"
-            value={activeProduct}
-            onChange={(e) => onProductChange(e.target.value)}
-          >
-            <option value="All">Any product</option>
-            {allProductTypes.map((p) => (
-              <option key={p} value={p}>{p}</option>
-            ))}
-          </select>
+          <span className="sf-label"><Icon name="clock" size={14} /> Status</span>
+          <div className="sf-chips">
+            <button
+              className={`sf-chip ${!showOpenNow ? 'is-active' : ''}`}
+              onClick={() => onOpenNowChange(false)}
+            >
+              All markets
+            </button>
+            <button
+              className={`sf-chip ${showOpenNow ? 'is-active' : ''}`}
+              onClick={() => onOpenNowChange(true)}
+            >
+              Open now
+            </button>
+          </div>
         </div>
 
         <div className="sf-group">
@@ -73,6 +79,20 @@ export default function SearchFilter({
             <option value="name">Alphabetical (A–Z)</option>
             <option value="proximity">Proximity (nearest first)</option>
             <option value="nextOpen">Next open day</option>
+          </select>
+        </div>
+
+        <div className="sf-group">
+          <span className="sf-label"><Icon name="tag" size={14} /> Sells</span>
+          <select
+            className="sf-select"
+            value={activeProduct}
+            onChange={(e) => onProductChange(e.target.value)}
+          >
+            <option value="All">Any product</option>
+            {allProductTypes.map((p) => (
+              <option key={p} value={p}>{p}</option>
+            ))}
           </select>
         </div>
       </div>

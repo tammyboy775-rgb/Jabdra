@@ -1,15 +1,29 @@
 import { Link, useParams } from 'react-router-dom'
 import { Icon } from '../../icons'
 import BookmarkButton from '../../components/BookmarkButton/BookmarkButton'
-import './MarketDetail.css'
-import { useContext } from 'react'
+import { productIconMap } from '../../data/marketData.js'
+import { productImages } from '../../data/productImages.js'
+import { useGeolocation } from '../../hooks/useGeolocation'
+import { marketDistanceKm } from '../../utils/marketUtils'
+import { useContext, useEffect } from 'react'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
+import './MarketDetail.css'
 
 export default function MarketDetail() {
   const { markets, isLoading, error } = useContext(MarketsContext)
+  const { location: userLocation, status: locationStatus, requestLocation } = useGeolocation()
+
+  useEffect(() => {
+    if (typeof navigator !== 'undefined' && 'geolocation' in navigator && locationStatus === 'idle') {
+      requestLocation()
+    }
+  }, [locationStatus, requestLocation])
 
   const { id } = useParams()
   const market = markets.find((m) => m.id === id)
+  const distance = userLocation && market.coordinates
+    ? marketDistanceKm(market, userLocation)
+    : null
 
   if (isLoading) {
     return <section className="page-section market-detail"><p>Loading market...</p></section>
@@ -49,9 +63,16 @@ export default function MarketDetail() {
             <h3>Typical products</h3>
             <div className="products-grid">
               {market.products.map((p) => (
-                <span key={p} className="product-pill">
-                  {p}
-                </span>
+                <div key={p} className="product-tile">
+                  <span className="product-tile-icon">
+                    {productImages[p] ? (
+                      <img src={productImages[p]} alt={p} loading="lazy" />
+                    ) : (
+                      <Icon name={productIconMap[p]} size={20} />
+                    )}
+                  </span>
+                  <span className="product-tile-label">{p}</span>
+                </div>
               ))}
             </div>
           </div>
@@ -102,6 +123,15 @@ export default function MarketDetail() {
                   <p className="info-value">{market.hours}</p>
                 </div>
               </li>
+              {distance != null && (
+                <li>
+                  <Icon name="pin" size={16} />
+                  <div>
+                    <p className="info-label">Distance</p>
+                    <p className="info-value">{distance.toFixed(1)} km away</p>
+                  </div>
+                </li>
+              )}
             </ul>
 
             <BookmarkButton kind="market" id={market.id} />

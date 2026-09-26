@@ -1,13 +1,14 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Icon } from '../../icons'
 import SearchFilter from '../../components/SearchFilter/SearchFilter'
 import MarketCard from '../../components/MarketCard/MarketCard'
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import LiveMarketStatus from '../../components/LiveMarketStatus/LiveMarketStatus'
-import { useContext } from 'react'
-import './Directory.css'
+import { useGeolocation } from '../../hooks/useGeolocation'
 import { MarketsContext } from '../../context/MarketsContext.jsx'
-import { marketDistanceKm, sortMarkets } from '../../utils/marketUtils'
+import { marketDistanceKm, sortMarkets, isMarketOpen } from '../../utils/marketUtils'
+import './Directory.css'
 
 export default function Directory() {
   const { markets, isLoading, error } = useContext(MarketsContext)
@@ -15,38 +16,29 @@ export default function Directory() {
   const [query, setQuery] = useState(params.get('q') || '')
   const [activeDay, setActiveDay] = useState(params.get('day') || 'All')
   const [activeProduct, setActiveProduct] = useState('All')
-  const [sortBy, setSortBy] = useState('name')
-  const [userLocation, setUserLocation] = useState(null)
-  const [locationStatus, setLocationStatus] = useState('idle')
+  const [sortBy, setSortBy] = useState('proximity')
+  const [showOpenNow, setShowOpenNow] = useState(false)
+  const { location: userLocation, status: locationStatus, requestLocation } = useGeolocation()
 
   const geoSupported =
     typeof navigator !== 'undefined' && 'geolocation' in navigator
 
-  const requestLocation = useCallback(() => {
-    if (!geoSupported || userLocation || locationStatus === 'locating') return
-
-    setLocationStatus('locating')
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setUserLocation({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        })
-        setLocationStatus('granted')
-      },
-      () => setLocationStatus('unavailable'),
-      { timeout: 8000, maximumAge: 300000 }
-    )
-  }, [geoSupported, userLocation, locationStatus])
+  useEffect(() => {
+    if (geoSupported && locationStatus === 'idle') {
+      requestLocation()
+    }
+  }, [geoSupported, locationStatus, requestLocation])
 
   const handleSortChange = (value) => {
     setSortBy(value)
-
-    if (value === 'proximity') requestLocation()
+    if (value === 'proximity' && geoSupported) {
+      requestLocation()
+    }
   }
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
+    const now = new Date()
     return markets.filter((m) => {
       const matchesQuery =
         !q ||
@@ -54,16 +46,17 @@ export default function Directory() {
         m.neighborhood.toLowerCase().includes(q)
       const matchesDay = activeDay === 'All' || m.days.includes(activeDay)
       const matchesProduct = activeProduct === 'All' || m.products.includes(activeProduct)
-      return matchesQuery && matchesDay && matchesProduct
+      const matchesOpenNow = !showOpenNow || isMarketOpen(m, now)
+      return matchesQuery && matchesDay && matchesProduct && matchesOpenNow
     })
-  }, [markets, query, activeDay, activeProduct])
+  }, [markets, query, activeDay, activeProduct, showOpenNow])
 
   const sorted = useMemo(
     () => sortMarkets(filtered, sortBy, { location: userLocation, now: new Date() }),
     [filtered, sortBy, userLocation]
   )
 
-  const showDistance = sortBy === 'proximity' && Boolean(userLocation)
+  const showDistance = Boolean(userLocation)
 
   let sortNote = { text: 'Sorted alphabetically by market name.', warning: false }
 
@@ -89,6 +82,21 @@ export default function Directory() {
         warning: true,
       }
     }
+  } else if (showDistance) {
+    sortNote = {
+      text: 'Distances shown from your current location.',
+      warning: false,
+    }
+  } else if (geoSupported && locationStatus === 'unavailable') {
+    sortNote = {
+      text: 'Location unavailable — distances can\'t be shown.',
+      warning: true,
+    }
+  } else if (geoSupported && locationStatus === 'idle') {
+    sortNote = {
+      text: 'Checking your location…',
+      warning: false,
+    }
   }
 
   return (
@@ -99,6 +107,16 @@ export default function Directory() {
           <span className="kicker">Market directory</span>
           <h2>Find a farmers' market</h2>
         </div>
+
+        {geoSupported && locationStatus === 'unavailable' && (
+          <button
+            type="button"
+            className="btn btn-outline btn-location"
+            onClick={requestLocation}
+          >
+            <Icon name="pin" size={16} /> Use my location
+          </button>
+        )}
       </div>
 
       <LiveMarketStatus markets={markets} />
@@ -113,6 +131,9 @@ export default function Directory() {
         sortBy={sortBy}
         onSortChange={handleSortChange}
         resultCount={filtered.length}
+        markets={markets}
+        showOpenNow={showOpenNow}
+        onOpenNowChange={setShowOpenNow}
       />
 
       {!isLoading && !error && (

@@ -45,6 +45,15 @@ function toMinutes(time) {
   return hours * 60 + minutes;
 }
 
+export function parseMarketHours(hoursString) {
+  const parts = hoursString.split("–").map((s) => s.trim());
+  if (parts.length !== 2) return { open: null, close: null };
+  return {
+    open: toMinutes(parts[0]),
+    close: toMinutes(parts[1]),
+  };
+}
+
 export function isMarketOpen(market, date = new Date()) {
   const day = DAY_NAMES[date.getDay()];
 
@@ -52,15 +61,23 @@ export function isMarketOpen(market, date = new Date()) {
     return false;
   }
 
-  const [openingTime, closingTime] = market.hours.split("–").map(toMinutes);
+  const { open, close } = parseMarketHours(market.hours);
   const currentMinutes = date.getHours() * 60 + date.getMinutes();
 
   return (
-    openingTime !== null &&
-    closingTime !== null &&
-    currentMinutes >= openingTime &&
-    currentMinutes <= closingTime
+    open !== null &&
+    close !== null &&
+    currentMinutes >= open &&
+    currentMinutes <= close
   );
+}
+
+export function getOpenMarkets(marketsList, date = new Date()) {
+  return marketsList.filter((market) => isMarketOpen(market, date));
+}
+
+export function getOpenMarketsCount(marketsList, date = new Date()) {
+  return getOpenMarkets(marketsList, date).length;
 }
 
 // Great-circle distance between two points, in kilometres.

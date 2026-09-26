@@ -1,3 +1,7 @@
+.btn-location {
+  white-space: nowrap;
+}
+
 .directory-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

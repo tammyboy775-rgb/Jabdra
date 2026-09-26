@@ -8,8 +8,8 @@
 }
 
 .navbar-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0 2%;
   padding: 0.9rem var(--gutter);
   display: flex;
   align-items: center;
@@ -118,30 +118,97 @@
 }
 
 .nav-auth-button {
-  padding: 0.35rem 0.15rem;
-  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line);
   background: transparent;
   color: var(--ink-soft);
-  cursor: pointer;
   font-size: 0.82rem;
   font-weight: 600;
-  transition: color 0.15s ease;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .nav-auth-button:hover {
   color: var(--green);
+  border-color: var(--green);
 }
 
 .nav-auth-signup {
-  padding: 0.55rem 0.8rem;
-  border: 1px solid var(--green);
-  border-radius: var(--radius-sm);
+  border-color: var(--green);
   color: var(--green);
 }
 
 .nav-auth-signup:hover {
   background: var(--green);
   color: var(--paper);
+  border-color: var(--green);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 0.35rem 0.15rem;
+  transition: color 0.15s ease;
+}
+
+.nav-user:hover {
+  color: var(--green);
+}
+
+.nav-user-name {
+  white-space: nowrap;
+}
+
+.nav-auth-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--brick);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--brick);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-auth-logout:hover {
+  background: var(--brick);
+  color: var(--paper);
+}
+
+.nav-drawer-auth-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.nav-drawer-auth {
+  padding: 0.9rem var(--gutter);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-align: left;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.nav-drawer-auth:hover {
+  color: var(--green);
 }
 
 .nav-cta {
@@ -222,6 +289,10 @@
   .nav-auth-button {
     display: none;
   }
+
+  .nav-auth-logout {
+    display: none;
+  }
 }
 
 @media (max-width: 520px) {
@@ -246,6 +317,10 @@
   .nav-cta {
     padding: 0.5rem 0.65rem;
     font-size: 0.78rem;
+  }
+
+  .nav-user-name {
+    display: none;
   }
 }
 
